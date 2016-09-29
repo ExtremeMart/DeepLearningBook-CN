@@ -5,7 +5,8 @@
 \setCJKsansfont[BoldFont=STHeiti]{STXihei}
 \setCJKmonofont{STFangsong}
 \usepackage{enumerate}
-
+\usepackage{caption}
+\setlength{\parskip}{1em}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -130,7 +131,7 @@
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
-   \includegraphics[width=4in]{fig/chap1/deep_learning_intro.png} 
+   \includegraphics[width=5in]{fig/chap1/deep_learning_intro.png} 
    \caption{深度学习模型图解。对计算机而言，理解如像素值等的传感器捕获的原始数据是非常困难的。从一组像素值到物体标签的函数映射是十分复杂的，如果直接来学习或评估这个映射看起来是个不可能的。深度学习通过把这个复杂的映射分解成一系列的简单映射来解决这个问题，每个简单的映射是模型中一个不同的“层”（layer）。原始的数据输入被称为“可视层”，因为它包含着我们观察地到的变量。紧接着是一系列的“隐层”不断的从图像中抽取抽象的特征，这些层被称为“隐层”是因为他们的值不是由原始数据直接给出的，模型需要决定哪些概念对解释可观测数据之间的关联是有用的。图示为每个隐层所学习到的概念的可视化。第一个隐层可以十分容易的通过相邻像素之间的明暗对比抽取出边缘的信息，第二层则可以通过轮廓信息学习出角点和轮廓的信息，第三层则可以通过角点和轮廓的信息寻找到指定物体的一些部件信息。最终，通过对物体的部件描述，我们可以识别出图像中的物体。}
    \label{fig:deep_learning_intro}
 \end{figure}
@@ -146,7 +147,7 @@
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
-   \includegraphics[width=4in]{fig/chap1/flow_chart.png} 
+   \includegraphics[width=5in]{fig/chap1/flow_chart.png} 
    \caption{每一个节点表示一个不同的操作，图示为从输入到输出映射的计算图。深度是从输入到输出的最长路径，但它的计算依赖于对独立计算步骤的定义。上图描述的是逻辑回归的模型$\delta(w^Tx)$，$\delta$是逻辑回归的sigmoid函数。如果我们认为加法、乘法和sigmoid操作是计算机语言的元素级操作，那这个模型的深度就是3；如果我们认为逻辑回归本身就是就是元素级操作，那这个模型的深度就是1。}
    \label{fig:flow_chart}
 \end{figure}
@@ -161,7 +162,7 @@
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
-   \includegraphics[width=4in]{fig/chap1/ai_approach.png} 
+   \includegraphics[width=6in]{fig/chap1/ai_approach.png} 
    \caption{这个维恩图解释了为什么深度学习也是一种表征学习的方法和机器学习方法。维恩图的每个部分都给出了一个AI方法的实例。}
    \label{fig:ai_approach}
 \end{figure}
@@ -287,6 +288,9 @@ McMculloch-Pitts神经元是一个描述大脑功能的早期模型，这个线�
 \subsection{不断变大的数据集}
 \label{sec:1.2.2}
 
+
+可能很多人会疑惑，第一次对人工神经网络的实验是在二十世纪五十年代，但为什么深度学习直到最近才被认为是一项关键技术。在二十世纪九十年代的时候，深度学习就在商业应用中取得了成功，但那时深度学习更被认为是一项只有专家能够使用的艺术而非技术，不过深度学习算法确实是需要一些技巧才能获得良好的表现。幸运的是，随着训练数据的不断增大，所需要的技巧也不断减少。今天在复杂任务上获得与人类水平相当的学习算法和二十世纪八十年代难以解决的玩具问题\footnote{指不是需要实际解决，但可以用来帮助更复杂问题寻找答案的问题}所使用的学习算法基本是相似的，但训练模型的算法简化了，可以训练非常深的结构。最重要的进步是如今我们可以给算法提供所需要的资源，帮助算法取得成功。图\ref{fig:1.8}展示了数据集的大小是如何与日俱增的。这种趋势是被整个社会的数字化所驱动，当计算机领域的活动越来越多，越来越多的行为也被记录。随着电脑互联的程度增加，集中这些记录变得更加容易，也更加容易的把这些数据变为适用于机器学习应用的数据集。“大数据”时代使得机器学习更加容易，因为统计估计这个关键负担被认为是减轻了不少，因为模型对少量数据观测后在新的数据上也能获得不错的泛化能力。到2016年，一个粗略的规则是5000个标注的数据可以获得可接受的表现，到标注数据达到千万级别时模型的能力能与人相比或超越人。当训练数据少于此的时候如何让模型仍然获得成功是一个重要研究领域，特别侧重于如何用无监督或者半监督的算法使用大量的未标注数据。
+
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=5in]{fig/chap1/1.8.png} 
@@ -294,8 +298,6 @@ McMculloch-Pitts神经元是一个描述大脑功能的早期模型，这个线�
    \label{fig:1.8}
 \end{figure}
 
-
-可能很多人会疑惑，第一次对人工神经网络的实验是在二十世纪五十年代，但为什么深度学习直到最近才被认为是一项关键技术。在二十世纪九十年代的时候，深度学习就在商业应用中取得了成功，但那时深度学习更被认为是一项只有专家能够使用的艺术而非技术，不过深度学习算法确实是需要一些技巧才能获得良好的表现。幸运的是，随着训练数据的不断增大，所需要的技巧也不断减少。今天在复杂任务上获得与人类水平相当的学习算法和二十世纪八十年代难以解决的玩具问题\footnote{指不是需要实际解决，但可以用来帮助更复杂问题寻找答案的问题}所使用的学习算法基本是相似的，但训练模型的算法简化了，可以训练非常深的结构。最重要的进步是如今我们可以给算法提供所需要的资源，帮助算法取得成功。图\ref{fig:1.8}展示了数据集的大小是如何与日俱增的。这种趋势是被整个社会的数字化所驱动，当计算机领域的活动越来越多，越来越多的行为也被记录。随着电脑互联的程度增加，集中这些记录变得更加容易，也更加容易的把这些数据变为适用于机器学习应用的数据集。“大数据”时代使得机器学习更加容易，因为统计估计这个关键负担被认为是减轻了不少，因为模型对少量数据观测后在新的数据上也能获得不错的泛化能力。到2016年，一个粗略的规则是5000个标注的数据可以获得可接受的表现，到标注数据达到千万级别时模型的能力能与人相比或超越人。当训练数据少于此的时候如何让模型仍然获得成功是一个重要研究领域，特别侧重于如何用无监督或者半监督的算法使用大量的未标注数据。
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
@@ -322,7 +324,61 @@ McMculloch-Pitts神经元是一个描述大脑功能的早期模型，这个线�
 模型的不断增大的原因有CPU的计算能力不断增强，通用GPU的来临（\ref{sec:12.1.2}中会描述），网络连接的提速，适用于分布式计算的更优秀的软件架构。模型的增大是深度学习最重要的历史趋势之一，这个趋势被期待着在未来延续。
 
 
-\subsection{不断提高的精确度，复杂度以及真实世界的带来的冲击}
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=6in]{fig/chap1/1.10.png} 
+    \captionsetup{singlelinecheck=off}
+   \caption[foo bar]{最初人工神经网络的单个神经元的连接数的设定受限于硬件的能力，现在单个神经元连接数设定主要是出于网络设计的考量。有一些人工神经网络，单个神经元的连接数近似于一只猫，而具有如老鼠一般小型哺乳动物的单个神经元连接数的网络是非常普遍的。就算是人类的大脑，其单个神经元连接数也不是特别多。
+    \begin{enumerate}
+	\item 自适应线性元
+	\item 认知机
+	\item GPU加速卷积网络
+	\item 深度玻尔兹曼机
+	\item 无监督卷积网络
+	\item  GPU加速多层感知机
+	\item 分布式自编码器
+	\item 多GPU卷积网络
+	\item COTS HPC无监督卷积网络
+	\item GoogLeNet
+\end{enumerate}}
+   \label{fig:1.10}
+\end{figure}
+
+
+
+	
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=6in]{fig/chap1/1.11.png} 
+   \captionsetup{singlelinecheck=off}
+   \caption[foo bar]{自从引入了隐藏元，人工神经网络的规模每2.4年会提升一倍
+    \begin{enumerate}
+ 	\item 感知机
+	\item 自适应线性元
+	\item 认知机
+	\item 早期的反向传播网络
+	\item 用于语音识别的递归神经网络
+	\item 用于语音识别的多层感知机
+	\item 平均场sigmoid信念网络
+	\item LeNet-5
+	\item Echo state 网络
+	\item 深度信念网络
+	\item GPU加速卷积网络
+	\item 深度玻尔兹曼机
+	\item GPU加速深度信念网络
+	\item 无监督卷积网络
+	\item  GPU加速多层感知机
+	\item OMP-1网络
+	\item 分布式自编码器
+	\item 多GPU卷积网络
+	\item COTS HPC无监督卷积网络
+	\item GoogLeNet
+\end{enumerate}}
+   \label{fig:1.11}
+\end{figure}
+
+
+\subsection{不断提高的精确度，复杂度以及对真实世界的冲击}
 从二十世纪八十年代以来，深度学习不断地提高自己的能力来进行精确的识别和预测。此外，深度学习也不断地成功的帮助更多的更广泛应用获得了成功。
 
 
@@ -332,49 +388,54 @@ McMculloch-Pitts神经元是一个描述大脑功能的早期模型，这个线�
 深度学习对语音识别带来了巨大的影响。语音识别的效果在二十世纪九十年代有所提升，此后的识别效果一直停滞不前。深度学习的引入是的语音识别的错误率突降，有些错误率甚至降到了以前的一半。在\ref{sec:12.3}中我们会更为详尽的展开这段历史。
 
 
-深度学习也为行人识别以及图像分割带来了巨大的成功，并且在交通标志分类的任务上已经超越了人类的能力。
+深度学习为行人识别以及图像分割带来了巨大的成功，并且在交通标志分类的任务上已经超越了人类的能力。
 
 
+随着深度网络的规模变大、精度提升，它能处理也愈加复杂的问题。神经网络可以把图片直接转为文字描述，而非只找出其中某个物体。之前，大家认为这类的学习需要标注文字里提及的每个物体，而如LSTM之类的递归神经网络现在被用于建模序列和序列之间的关系。这类序列到序列的学习似乎是机器翻译的革命性的风口浪尖。
 
 
+日益复杂的趋势由于神经元图灵机的引入被认为是合乎逻辑的，这种机器可以从记忆细胞中任意读写。这种神经网络可以从相应的样例中学习简单的功能，比如，它可以从扰乱的和有序的序列中学习对数字进行排序。这种自编程的机器还在婴儿期，但原则上在未来很可能适用于几乎任何任务。
 
 
+深度学习中另一项令人瞩目的成就是扩展了\emph{强化学习}的领域。在强化学习中，一个自主代理必须从不断的尝试和失败中学习处理一个任务，而非是通过人工的指导。DeepMind做了一款基于深度学习的强化学习系统可以学会玩Atari这种视频游戏，在许多任务上也达到了人类的水平。深度学习也显著的提升了机器人中强化学习的表现。
+
+
+许多继续深度学习的应用利润都很客观。深度学习目前被许多顶级的科技公司使用，比如谷歌、微软、脸书、IBM、百度、苹果、网飞、英伟达和NEC。
+
+
+深度学习的进步也很大程度上依赖于软件架构的进步。比如Theano、PyLearn2、Torch、DistBelief、Caffe、MXNet和TensorFlow等软件库支撑了许多重要的研究项目和商业产品。
+
+
+深度学习也其他的科学领域做出了贡献。现代的用于物体识别的卷积神经网络提供了神经学家可以研究的视觉处理模型。深度学习也为科技领域中处理海量的数据、做出有用的预测提供了工具。深度学习通过预测分子之间的交互来帮助制药企业设计新的药品、也曾被用来寻找亚原子和自动解析用于构建人脑三维图像的显微镜图像。我们期望深度学习未来能在更多的领域生根发芽。
+
+
+总而言之，深度学习是一种机器学习的方法，机器学习在过去几十年大量的使用人类大脑的知识、统计学和应用数学等。近年来，主要因为更强大的计算机、更海量的数据集和训练更深的网络的技术出现，机器学习在普及性和实用性上都得到了极大的提升。深度学习的未来充满着挑战和机遇，而它也将去探索新的边界。
 
    
 
-\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-   \centering
-   \includegraphics[width=4in]{fig/chap1/1.10.png} 
-   \caption{最初人工神经网络的单个神经元的连接数的设定受限于硬件的能力，现在单个神经元连接数设定主要是出于网络设计的考量。有一些人工神经网络，单个神经元的连接数近似于一只猫，而具有如老鼠一般小型哺乳动物的单个神经元连接数的网络是非常普遍的。就算是人类的大脑，其单个神经元连接数也不是特别多。
-\footnote{
-	 \begin{enumerate}
-		\item 自适应线性元
-		\item 认知机
-		\item GPU加速卷积网络
-		\item 深度玻尔兹曼机
-		\item 无监督卷积网络
-		\item  GPU加速多层感知机
-		\item 分布式自编码器
-		\item 多GPU卷积网络
-		\item COTS HPC无监督卷积网络
-		\item GoogLeNet
-	\end{enumerate}}}
-   \label{fig:1.10}
-\end{figure}
-
-\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-   \centering
-   \includegraphics[width=6in]{fig/chap1/1.11.png} 
-   \caption{example caption}
-   \label{fig:1.11}
-\end{figure}
+	
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=6in]{fig/chap1/1.12.png} 
-   \caption{example caption}
+   \caption{自从深度网络达到了可以参与ImageNet竞赛的规模，就连续获得了多年的冠军，且每一年的错误率都有降低。}
    \label{fig:1.12}
 \end{figure}
+
+
+\part{应用数学与机器学习基础}
+\label{part:1}
+
+本部分介绍一些用于理解深度学习的基础数学概念。我们从定义函数和一些变量的应用数学开始，找到这些函数的最高点和最低点并量化置信度。
+
+
+接着，我们会介绍机器学习的基本目标，并介绍如何使用特定的模型来模拟表示并完成这些目标。比如设计一个损失函数来描述模拟值和真值的差距，并使用训练算法来最小化损失函数。
+
+
+这个基本的框架是许多机器学习算法的基础，包括一些不那么深的机器学习模型都有用到。在本书后续部分，我们会使用这个框架来建立深度学习算法。
+
+\chapter{线性代数}
+\label{chap:2}
 
 
 \section{9.10}
@@ -402,8 +463,6 @@ McMculloch-Pitts神经元是一个描述大脑功能的早期模型，这个线�
 
 
 
-\part{应用数学与机器学习基础}
-\label{part:1}
 
 \part{深度学习:实战}
 \label{part:2}
