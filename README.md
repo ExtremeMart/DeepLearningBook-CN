@@ -1,10 +1,11 @@
 # DeepLearningBook-CN
 A translation of the deep learning book (翻译《深度学习》)
-Table of Contents，contributors,deadline(翻译内容，翻译者，截止日期如下)
+
 
 Acknowledgements
 
 Notation
+
 
 1 Introduction
 
@@ -17,6 +18,7 @@ Part I: Applied Math and Machine Learning Basics
 4 Numerical Computation
 
 5 Machine Learning Basics
+
 
 Part II: Modern Practical Deep Networks
 
@@ -33,6 +35,7 @@ Part II: Modern Practical Deep Networks
 11 Practical Methodology
 
 12 Applications
+
 
 Part III: Deep Learning Research
 
