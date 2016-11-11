@@ -1,7 +1,6 @@
 # DeepLearningBook-CN
 A translation of the deep learning book (翻译《深度学习》)
-
-Table of Contents，contributors,deadline(翻译内容，翻译者，目录)
+Table of Contents，contributors,deadline(翻译内容，翻译者，截止日期如下)
 
 Acknowledgements
 
