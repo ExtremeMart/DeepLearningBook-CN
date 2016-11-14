@@ -58,3 +58,4 @@ Part III: Deep Learning Research
 Bibliography
 
 Index
+>>>>>>> 4e7bae446a194dcab789f9ed6970a33c8d100ae6
