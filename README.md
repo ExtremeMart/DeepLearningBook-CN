@@ -2,7 +2,7 @@
 本项目是由极视角旗下极市平台(联系人@extreme-assistant,@LaurenLuoYun)联合AG Group(联系人@BrowningWan)组织的Deep Learning(IAN GOODFELLOW,YOSHUA BENGIO,ARRON COURVILLE联合编著)的开放社区中文翻译活动。
 
 
-###当前翻译进度(持续更新)
+###当前翻译进度(持续更新)</br>
 <table border="0">
 <tr><td>章节</td><td>翻译者</td><td>校对者</td><td>翻译进度</td><td>校对进度</td></tr>
 <tr><td>0.目录、序言</td><td>@huangynn</td><td>@ZhangXinNan,@rexnxiaobai</td><td>已完成</td><td>进行中</td></tr>
@@ -29,8 +29,8 @@
 </table>
 *注:每一章节都有若干小节，所以翻译者可以不只一人，进行中的翻译也可以继续添加翻译者。
 
-###感谢全体贡献者(持续更新)
+###感谢全体贡献者(持续更新)</br>
 @extreme-assistant,@LaurenLuoYun,@BrowningWan,@huangynn,@ZhangXinNan,@rexnxiaobai
 
-###联系我们
+###联系我们</br>
 如有任何疑问或者想加入小组，请联系小助手（微信：Extreme-Vision,邮箱：developer@extremevision.com.cn）
