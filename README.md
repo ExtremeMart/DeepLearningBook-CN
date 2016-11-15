@@ -1,6 +1,8 @@
 # DeepLearningBook-CN
 本项目是由[极视角](http://www.extremevision.com.cn)旗下[极市平台]()(联系人@extreme-assistant,@LaurenLuoYun)联合AG Group(联系人@BrowningWan)组织的Deep Learning(IAN GOODFELLOW,YOSHUA BENGIO,ARRON COURVILLE联合编著)的开放社区中文翻译活动。
 
+*本项目仅用于学习、研究用途，不得用于任何商业用途。
+
 
 ###当前翻译进度(持续更新) </br>
 <table border="0">
