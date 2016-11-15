@@ -10,7 +10,7 @@
 <tr><td>2.线性代数</td><td>pascal_meng@outlook.com</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
 <tr><td>3.概率论与信息论</td><td>@wulemilly,@msnh</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
 <tr><td>4.数值优化</td><td>@BrowningWan</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
-<tr><td>5.机器学习基础</td><td>@kakaguotao</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
+<tr><td>5.机器学习基础</td><td>@kakaguotao，@KaiserW</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
 <tr><td>6.深度前馈网络</td><td>@LaurenLuoYun</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
 <tr><td>7.深度学习的正则化</td><td>@ai0825</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
 <tr><td>8.训练深度模型的优化方法</td><td>@SilentSkyWalker</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
@@ -22,7 +22,7 @@
 <tr><td>14.自编码器</td><td>@hijeffery</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
 <tr><td>15.表征学习</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
 <tr><td>16.深度学习的结构化概率模型</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
-<tr><td>17.蒙特卡洛方法</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
+<tr><td>17.蒙特卡洛方法</td><td>@kiseliu</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
 <tr><td>18.对抗分区函数</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
 <tr><td>19.近似推理</td><td>caigaojiang@gmail.com</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
 <tr><td>20.深度生成式模型</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
