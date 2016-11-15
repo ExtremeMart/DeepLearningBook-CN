@@ -15,7 +15,7 @@
 <tr><td>7.深度学习的正则化</td><td>@ai0825</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
 <tr><td>8.训练深度模型的优化方法</td><td>@SilentSkyWalker</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
 <tr><td>9.卷积网络</td><td>jiangyi0425@gmail.com</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
-<tr><td>10.序列模型：循环网络与递归网络</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
+<tr><td>10.序列模型：循环网络与递归网络</td><td>@yinruiqing</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
 <tr><td>11.实战方法</td><td>@rickymf4</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
 <tr><td>12.应用</td><td>@MalcolmSun</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
 <tr><td>13.线性模型</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
