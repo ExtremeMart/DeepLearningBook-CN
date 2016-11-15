@@ -17,7 +17,7 @@
 <tr><td>9.卷积网络</td><td>jiangyi0425@gmail.com</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
 <tr><td>10.序列模型：循环网络与递归网络</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
 <tr><td>11.实战方法</td><td>@rickymf4</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
-<tr><td>12.应用</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
+<tr><td>12.应用</td><td>@MalcolmSun</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
 <tr><td>13.线性模型</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
 <tr><td>14.自编码器</td><td>@hijeffery</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
 <tr><td>15.表征学习</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
@@ -30,7 +30,7 @@
 *注:每一章节都有若干小节，所以翻译者可以不只一人，进行中的翻译也可以继续添加翻译者。
 
 ###感谢全体贡献者(持续更新)</br>
-@extreme-assistant,@LaurenLuoYun,@BrowningWan,@huangynn,@ZhangXinNan,@rexnxiaobai
+@extreme-assistant,@LaurenLuoYun,@BrowningWan,@huangynn,@ZhangXinNan,@rexnxiaobai 
 
 ###联系我们</br>
 如有任何疑问或者想加入小组，请联系小助手（微信：Extreme-Vision,邮箱：developer@extremevision.com.cn）
