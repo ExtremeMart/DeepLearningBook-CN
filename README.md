@@ -3,30 +3,30 @@
 
 
 ###当前翻译进度(持续更新)
-| 章节     | 翻译者   | 校对者   |  翻译进度  | 校对进度 |
-|---------------------------------------------------|
-|0.目录、序言|@huangynn|@ZhangXinNan,@rexnxiaobai|已完成|进行中|
-|1.深度学习介绍|@huangynn|@ZhangXinNan,@rexnxiaobai|已完成|进行中|
-|2.线性代数|pascal_meng@outlook.com|待定|进行中|未开始|
-|3.概率论与信息论|@wulemilly,@msnh|待定|进行中|未开始|
-|4.数值优化|@BrowningWan|待定|进行中|未开始|
-|5.机器学习基础|@kakaguotao|待定|进行中|未开始|
-|6.深度前馈网络|@LaurenLuoYun|待定|进行中|未开始|
-|7.深度学习的正则化|待定|待定|未开始|未开始|
-|8.训练深度模型的优化方法|待定|待定|未开始|未开始|
-|9.卷积网络|jiangyi0425@gmail.com|待定|未开始|未开始|
-|10.序列模型：循环网络与递归网络|待定|待定|未开始|未开始|
-|11.实战方法|@rickymf4|待定|进行中|未开始|
-|12.应用|待定|待定|未开始|未开始|
-|13.线性模型|待定|待定|未开始|未开始|
-|14.自编码器|@hijeffery|待定|进行中|未开始|
-|15.表征学习|待定|待定|未开始|未开始|
-|16.深度学习的结构化概率模型|待定|待定|未开始|未开始|
-|17.蒙特卡洛方法|待定|待定|未开始|未开始|
-|18.对抗分区函数|待定|待定|未开始|未开始|
-|19.近似推理|caigaojiang@gmail.com|待定|进行中|未开始|
-|20.深度生成式模型|待定|待定|未开始|未开始|
-
+<table border="0">
+<tr><td>章节</td><td>翻译者</td><td>校对者</td><td>翻译进度</td><td>校对进度</td></tr>
+<tr><td>0.目录、序言</td><td>@huangynn</td><td>@ZhangXinNan,@rexnxiaobai</td><td>已完成</td><td>进行中</td></tr>
+<tr><td>1.深度学习介绍</td><td>@huangynn</td><td>@ZhangXinNan,@rexnxiaobai</td><td>已完成</td><td>进行中</td></tr>
+<tr><td>2.线性代数</td><td>pascal_meng@outlook.com</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
+<tr><td>3.概率论与信息论</td><td>@wulemilly,@msnh</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
+<tr><td>4.数值优化</td><td>@BrowningWan</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
+<tr><td>5.机器学习基础</td><td>@kakaguotao</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
+<tr><td>6.深度前馈网络</td><td>@LaurenLuoYun</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
+<tr><td>7.深度学习的正则化</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
+<tr><td>8.训练深度模型的优化方法</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
+<tr><td>9.卷积网络</td><td>jiangyi0425@gmail.com</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
+<tr><td>10.序列模型：循环网络与递归网络</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
+<tr><td>11.实战方法</td><td>@rickymf4</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
+<tr><td>12.应用</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
+<tr><td>13.线性模型</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
+<tr><td>14.自编码器</td><td>@hijeffery</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
+<tr><td>15.表征学习</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
+<tr><td>16.深度学习的结构化概率模型</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
+<tr><td>17.蒙特卡洛方法</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
+<tr><td>18.对抗分区函数</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
+<tr><td>19.近似推理</td><td>caigaojiang@gmail.com</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
+<tr><td>20.深度生成式模型</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
+</table>
 *注:每一章节都有若干小节，所以翻译者可以不只一人，进行中的翻译也可以继续添加翻译者。
 
 ###感谢全体贡献者(持续更新)
