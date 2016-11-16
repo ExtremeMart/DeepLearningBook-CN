@@ -6,7 +6,7 @@
 
 ###当前翻译进度(持续更新) </br>
 <table border="0">
-<tr><td>章节</td><td>翻译者</td><td>校对者</td><td>翻译进度</td><td>校对进度</td><td>deadline</td></tr>
+<tr><td>章节</td><td>翻译者</td><td>校对者</td><td>翻译进度</td><td>校对进度</td><td>翻译deadline</td></tr>
 <tr><td>0.目录、序言</td><td>@huangynn</td><td>@ZhangXinNan,@rexnxiaobai</td><td>已完成</td><td>进行中</td><td>进行中</td></tr>
 <tr><td>1.深度学习介绍</td><td>@huangynn</td><td>@ZhangXinNan,@rexnxiaobai</td><td>已完成</td><td>进行中</td><td>进行中</td></tr>
 <tr><td>2.线性代数</td><td>pascal_meng@outlook.com</td><td>待定</td><td>进行中</td><td>未开始</td><td>进行中</td></tr>
