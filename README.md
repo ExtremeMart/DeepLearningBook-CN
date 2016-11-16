@@ -20,7 +20,7 @@
 </td></tr>
 <tr><td>10.序列模型：循环网络与递归网络</td><td>@yinruiqing</td><td>待定</td><td>进行中</td><td>未开始</td><td>2017/1/20</td></tr>
 <tr><td>11.实战方法</td><td>@rickymf4</td><td>待定</td><td>进行中</td><td>未开始</td><td>2017/1/20</td></tr>
-<tr><td>12.应用</td><td>@MalcolmSun</td><td>待定</td><td>进行中</td><td>未开始</td><td>待定</td></tr>
+<tr><td>12.应用</td><td>@MalcolmSun</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/15</td></tr>
 <tr><td>13.线性模型</td><td>@shalong</td><td>待定</td><td>进行中</td><td>未开始</td><td>2017/1/20</td></tr>
 <tr><td>14.自编码器</td><td>@hijeffery（14.1-14.6）</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/5</td></tr>
 <tr><td>15.表征学习</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td><td>待定</td></tr>
