@@ -12,7 +12,7 @@
 <tr><td>2.线性代数</td><td>pascal_meng@outlook.com</td><td>待定</td><td>进行中</td><td>未开始</td><td>进行中</td></tr>
 <tr><td>3.概率论与信息论</td><td>@wulemilly,@msnh</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/10/30</td></tr>
 <tr><td>4.数值优化</td><td>@BrowningWan</td><td>待定</td><td>进行中</td><td>未开始</td><td>进行中</td></tr>
-<tr><td>5.机器学习基础</td><td>@kakaguotao(5.2-5.6)，@KaiserW(5.7-5.11)，@yinruiqing(5.1)</td><td>待定</td><td>进行中(5.1.1-5.1.3已翻完)</td><td>2016/12/20、2016/12/30、2016/11/20</td><td></td></tr>
+<tr><td>5.机器学习基础</td><td>@kakaguotao(5.2-5.6)，@KaiserW(5.7-5.11)，@yinruiqing(5.1)</td><td>待定</td><td>进行中(5.1.1-5.1.3已翻完)</td><td>未开始</td><td>2016/12/20、2016/12/30、2016/11/20</td></tr>
 <tr><td>6.深度前馈网络</td><td>@LaurenLuoYun</td><td>待定</td><td>进行中</td><td>未开始</td><td>进行中</td></tr>
 <tr><td>7.深度学习的正则化</td><td>@ai0825</td><td>待定</td><td>未开始</td><td>未开始</td><td>进行中</td></tr>
 <tr><td>8.训练深度模型的优化方法</td><td>@SilentSkyWalker</td><td>待定</td><td>未开始</td><td>进行中</td><td>2017/1/20</td></tr>
