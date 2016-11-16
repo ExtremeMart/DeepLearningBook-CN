@@ -12,15 +12,15 @@
 <tr><td>2.线性代数</td><td>pascal_meng@outlook.com</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
 <tr><td>3.概率论与信息论</td><td>@wulemilly,@msnh</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
 <tr><td>4.数值优化</td><td>@BrowningWan</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
-<tr><td>5.机器学习基础</td><td>@kakaguotao，@KaiserW</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
+<tr><td>5.机器学习基础</td><td>@kakaguotao，@KaiserW，@yinruiqing</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
 <tr><td>6.深度前馈网络</td><td>@LaurenLuoYun</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
 <tr><td>7.深度学习的正则化</td><td>@ai0825</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
 <tr><td>8.训练深度模型的优化方法</td><td>@SilentSkyWalker</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
 <tr><td>9.卷积网络</td><td>jiangyi0425@gmail.com</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
-<tr><td>10.序列模型：循环网络与递归网络</td><td>@yinruiqing</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
+<tr><td>10.序列模型：循环网络与递归网络</td><td>@yinruiqing</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
 <tr><td>11.实战方法</td><td>@rickymf4</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
 <tr><td>12.应用</td><td>@MalcolmSun</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
-<tr><td>13.线性模型</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
+<tr><td>13.线性模型</td><td>@shalong</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
 <tr><td>14.自编码器</td><td>@hijeffery</td><td>待定</td><td>进行中</td><td>未开始</td></tr>
 <tr><td>15.表征学习</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
 <tr><td>16.深度学习的结构化概率模型</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td></tr>
@@ -34,5 +34,10 @@
 ###感谢全体贡献者(持续更新) </br>
 @extreme-assistant,@LaurenLuoYun,@BrowningWan,@huangynn,@ZhangXinNan,@rexnxiaobai 
 
+###翻译模板说明(简要说明，后续会详细) </br>
+大家统一使用本项目下的latex模板翻译，排版选项使用xelatex
+
 ###联系我们 </br>
 如有任何疑问或者想加入小组，请联系小助手（微信：Extreme-Vision,邮箱：developer@extremevision.com.cn）
+
+
