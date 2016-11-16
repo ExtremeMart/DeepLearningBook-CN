@@ -20,12 +20,12 @@
 </td></tr>
 <tr><td>10.序列模型：循环网络与递归网络</td><td>@yinruiqing</td><td>待定</td><td>进行中</td><td>未开始</td><td>2017/1/20</td></tr>
 <tr><td>11.实战方法</td><td>@rickymf4</td><td>待定</td><td>进行中</td><td>未开始</td><td>2017/1/20</td></tr>
-<tr><td>12.应用</td><td>@MalcolmSun</td><td>待定</td><td>未开始</td><td>未开始</td><td>进行中</td></tr>
-<tr><td>13.线性模型</td><td>@shalong</td><td>待定</td><td>未开始</td><td>未开始</td><td>2017/1/20</td></tr>
+<tr><td>12.应用</td><td>@MalcolmSun</td><td>待定</td><td>进行中</td><td>未开始</td><td>进行中</td></tr>
+<tr><td>13.线性模型</td><td>@shalong</td><td>待定</td><td>进行中</td><td>未开始</td><td>2017/1/20</td></tr>
 <tr><td>14.自编码器</td><td>@hijeffery（14.1-14.6）</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/5</td></tr>
 <tr><td>15.表征学习</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td><td>进行中</td></tr>
 <tr><td>16.深度学习的结构化概率模型</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td><td>进行中</td></tr>
-<tr><td>17.蒙特卡洛方法</td><td>@kiseliu</td><td>待定</td><td>未开始</td><td>未开始</td><td>2016/12/5</td></tr>
+<tr><td>17.蒙特卡洛方法</td><td>@kiseliu</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/5</td></tr>
 <tr><td>18.对抗分区函数</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td><td>进行中</td></tr>
 <tr><td>19.近似推理</td><td>caigaojiang@gmail.com</td><td>待定</td><td>进行中</td><td>未开始</td><td>进行中</td></tr>
 <tr><td>20.深度生成式模型</td><td>待定</td><td>待定</td><td>未开始</td><td>未开始</td><td>进行中</td></tr>
