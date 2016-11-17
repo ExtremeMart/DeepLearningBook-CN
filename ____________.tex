@@ -1,0 +1,237 @@
+\documentclass[a4paper,11pt]{book}
+
+\usepackage{xeCJK}
+\setCJKmainfont[BoldFont=STSong, ItalicFont=STKaiti]{STSong}
+\setCJKsansfont[BoldFont=STHeiti]{STXihei}
+\setCJKmonofont{STFangsong}
+\usepackage{enumerate}
+\usepackage{caption}
+\usepackage{bm}
+\setlength{\parskip}{1em}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Source: http://en.wikibooks.org/wiki/LaTeX/Hyperlinks %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+
+\newenvironment{dedication}
+{
+   \cleardoublepage
+   \thispagestyle{empty}
+   \vspace*{\stretch{1}}
+   \hfill\begin{minipage}[t]{0.66\textwidth}
+   \raggedright
+}
+{
+   \end{minipage}
+   \vspace*{\stretch{3}}
+   \clearpage
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapter quote at the start of chapter        %
+% Source: http://tex.stackexchange.com/a/53380 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\renewcommand{\@chapapp}{}% Not necessary...
+\newenvironment{chapquote}[2][2em]
+  {\setlength{\@tempdima}{#1}%
+   \def\chapquote@author{#2}%
+   \parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
+   \itshape}
+  {\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% First page of book which contains 'stuff' like: %
+%  - Book title, subtitle                         %
+%  - Book author name                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\title{\Huge \textbf{深度学习} }
+% Author
+\author{\textsc{Ian Goodfellow} \\ \textsc{Yoshua Bengio} \\ \textsc{Aaron Courville}}
+\begin{document}
+
+\frontmatter
+\maketitle
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\mainmatter
+
+%%%%%%%%%%%
+% Preface %
+%%%%%%%%%%%
+
+\input{chap1.tex}
+
+\part{应用数学与机器学习基础}
+\label{part:1}
+
+本部分介绍一些用于理解深度学习的基础数学概念。我们从定义函数和一些变量的应用数学开始，然后找到这些函数的最高点和最低点并量化置信度。
+
+
+接着，我们会介绍机器学习的基本目标，并介绍如何使用特定的模型来模拟表示并完成这些目标。比如设计一个损失函数来描述模拟值和真值的差距，并使用训练算法来最小化损失函数。
+
+
+这个基本的框架是许多机器学习算法的基础，包括一些不那么深的机器学习模型都有用到。在本书后续部分，我们会使用这个框架来建立深度学习算法。
+
+\chapter{线性代数}
+\label{chap:2}
+
+\section{标量、向量、矩阵和张量}
+\label{sec:2.1}
+
+\section{矩阵和向量乘法}
+\label{sec:2.2}
+
+\section{单位矩阵和逆矩阵}
+\label{sec:2.3}
+
+\section{线性相关和和线性空间}
+\label{sec:2.4}
+
+\section{秩}
+\label{sec:2.5}
+
+\section{特殊的矩阵和向量}
+\label{sec:2.6}
+
+\section{特征分解}
+\label{sec:2.7}
+
+\section{奇异值分解}
+\label{sec:2.8}
+
+\section{摩尔－彭若斯广义逆}
+\label{sec:2.9}
+
+\section{求迹}
+\label{sec:2.10}
+
+\section{行列式}
+\label{sec:2.11}
+
+\section{示例：主成分分析}
+\label{sec:2.12}
+
+\chapter{概率论和信息论}
+\label{chap:3}
+
+\chapter{数值优化}
+\label{chap:4}
+
+\chapter{机器学习基础}
+\label{chap:5}
+
+\section{5.7.2}
+\label{sec:5.7.2}
+
+\part{深度学习:实战}
+\label{part:2}
+
+本部分将介绍可以用于解决实际问题的现代深度学习方法。
+
+
+深度学习拥有着漫长历史和许多的应用，一些尝试至今已硕果累累。一些看起来野心十足的目标已经变为现实。深度学习中仍需探索的分支我们将留到最后一部分进行介绍。
+
+
+本部分只介绍那些在工业中进行应用实践并获得成功的方法。
+
+
+现代深度学习为有监督学习提供了一个十分强大的框架。通过增加层数或层间的单元数，网络可模拟更为复杂的函数。许多任务中都有把一个向量映射到另一个向量的工作，人类对这类工作翻译十分迅速，如果给出足够大的模型和大量的标签数据，深度学习也可以很好的完成这项工作。另外那些非向量映射可以描述的困难工作，甚至人类都需要时间思考和反应的，目前是不在深度学习讨论的范畴内。
+
+
+本部分将讨论参数方程近似技术，这几乎要被所有的现代深度学习实践所使用。我们先介绍用于描述这些方程的前馈深度网络模型，然后我们会介绍正则化和优化等进一步的技术。缩放这些模型，使之适应于高分辨率的图像和长时间序列则需要进一步的讲述。我们将会介绍可用于缩放图像的卷积网络和处理时间序列的循环神经网络。最后，我们将总结一些可用于具体实践的指导，包括设计、构建、配置深度学习等，并对一些深度学习应用进行回顾。
+
+
+本部分的章节对实践者来说最为重要，实践者们将开始使用深度学习技术解决真实世界中的问题。
+
+\input{chap6.tex}
+
+
+
+\chapter{深度学习的正则化}
+\label{chap:7}
+
+\chapter{训练深度模型的优化方法}
+\label{chap:8}
+
+\chapter{卷积网络}
+\label{chap:9}
+
+
+\section{9.10}
+\label{sec:9.10}
+
+\chapter{序列模型：循环网络与递归网络}
+\label{chap:10}
+
+\section{10.7}
+\label{sec:10.7}
+
+\chapter{实战方法}
+\label{chap:11}
+
+\chapter{应用}
+\label{chap:12}
+
+
+\subsection{12.1.2}
+\label{sec:12.1.2}
+
+\section{12.3}
+\label{sec:12.3}
+
+\part{深度学习研究}
+\label{part:3}
+
+\chapter{线性模型}
+\label{chap:13}
+
+\chapter{自编码器}
+\label{chap:14}
+
+
+\chapter{表征学习}
+\label{chap:15}
+
+
+\section{15.1}
+\label{sec:15.1}
+
+\chapter{深度学习的结构化概率模型}
+\label{chap:16}
+
+\chapter{蒙特卡洛方法}
+\label{chap:17}
+
+
+\chapter{对抗分区函数}
+\label{chap:18}
+
+\chapter{近似推理}
+\label{chap:19}
+
+\chapter{深度生成式模型}
+\label{chap:20}
+
+
+
+
+
+
+
+
+
+\end{document}
