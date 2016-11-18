@@ -15,7 +15,7 @@ http://www.deeplearningbook.org/
 <tr><td>3.概率论与信息论</td><td>@wulemilly,@msnh</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/11/30</td></tr>
 <tr><td>4.数值优化</td><td>@BrowningWan（4.0-4.3），cypress1010@sina.com（4.4-4.5）</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/15</td></tr>
 <tr><td>5.机器学习基础</td><td>@kakaguotao(5.2-5.6)，@KaiserW(5.7-5.11)，@yinruiqing(5.1)</td><td>待定</td><td>进行中(5.1.1-5.1.3已翻完)</td><td>未开始</td><td>2016/12/20、2016/12/30、2016/11/20</td></tr>
-<tr><td>6.深度前馈网络</td><td>jim1949@163.com(6.0-6.2),@liviclee(6.2-6.7)</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/18,2016/12/10</td></tr>
+<tr><td>6.深度前馈网络</td><td>jim1949@163.com(6.0-6.2),@liviclee(6.2-6.7)</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/18、2016/12/10</td></tr>
 <tr><td>7.深度学习的正则化</td><td>@ai0825</td><td>待定</td><td>进行中</td><td>未开始</td><td>待定</td></tr>
 <tr><td>8.训练深度模型的优化方法</td><td>wzwei1636@163.com（8.0-8.2），@SilentSkyWalker（8.3-8.5），@dimitri0802（8.6-8.7）</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/25</td></tr>
 <tr><td>9.卷积网络</td><td>@ifighting（9.1-9.6），@iWeisskohl（9.7-9.11）</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/20
@@ -24,7 +24,7 @@ http://www.deeplearningbook.org/
 <tr><td>11.实战方法</td><td>@rickymf4</td><td>待定</td><td>进行中</td><td>未开始</td><td>2017/1/20</td></tr>
 <tr><td>12.应用</td><td>@MalcolmSun</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/15</td></tr>
 <tr><td>13.线性模型</td><td>@shalong</td><td>待定</td><td>进行中</td><td>未开始</td><td>2017/1/20</td></tr>
-<tr><td>14.自编码器</td><td>@hijeffery（14.1-14.6）@Euniceu（14.7-14.9）</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/5,2016/12/15</td></tr>
+<tr><td>14.自编码器</td><td>@hijeffery（14.1-14.6）@Euniceu（14.7-14.9）</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/5、2016/12/15</td></tr>
 <tr><td>15.表征学习</td><td>@tangzhenyu，@chongruo</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/25</td></tr>
 <tr><td>16.深度学习的结构化概率模型</td><td>@wysroy</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/28</td></tr>
 <tr><td>17.蒙特卡洛方法</td><td>@kiseliu</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/5</td></tr>
