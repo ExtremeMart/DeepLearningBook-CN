@@ -39,7 +39,7 @@ http://www.deeplearningbook.org/
 @ZhangXinNan,@rexnxiaobai，@ysh329
 
 ###感谢全体贡献者(持续更新) </br>
-@extreme-assistant,@LaurenLuoYun,@BrowningWan,@huangynn,@ZhangXinNan,@rexnxiaobai，@yinruiqing
+@extreme-assistant,@LaurenLuoYun,@BrowningWan,@huangynn,@ZhangXinNan,@rexnxiaobai，@yinruiqing，@quxiaofeng
 
 ###翻译须知 </br>
 大家将统一使用latex模板排版</br>
