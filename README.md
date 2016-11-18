@@ -42,9 +42,9 @@ http://www.deeplearningbook.org/
 @extreme-assistant,@LaurenLuoYun,@BrowningWan,@huangynn,@ZhangXinNan,@rexnxiaobai，@yinruiqing
 
 ###翻译须知 </br>
-大家将统一使用latex模板排版
-1.翻译人员认领章节后，会分配一个链接地址，大家按照链接地址来在线翻译就可以
-2.由校对人员校对翻译后经大家阅读没有问题会上传到git上release
+大家将统一使用latex模板排版</br>
+1.翻译人员认领章节后，会分配一个链接地址，大家按照链接地址来在线翻译就可以</br>
+2.由校对人员校对翻译后经大家阅读没有问题会上传到git上release</br>
 3.大家随时可以对已经release的版本进行修正
 
 ###联系我们 </br>
