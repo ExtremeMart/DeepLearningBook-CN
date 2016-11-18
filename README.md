@@ -27,7 +27,7 @@ http://www.deeplearningbook.org/
 <tr><td>14.自编码器</td><td>@hijeffery（14.1-14.6）@Euniceu（14.7-14.9）</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/5、2016/12/15</td></tr>
 <tr><td>15.表征学习</td><td>@tangzhenyu，@chongruo</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/25</td></tr>
 <tr><td>16.深度学习的结构化概率模型</td><td>@wysroy</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/28</td></tr>
-<tr><td>17.蒙特卡洛方法</td><td>@kiseliu</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/5</td></tr>
+<tr><td>17.蒙特卡洛方法</td><td>@kiseliu（17.0-17.3），@geruihai（17.4-17.5）</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/5</td></tr>
 <tr><td>18.对抗分区函数</td><td>@quxiaofeng</td><td>待定</td><td>进行中</td><td>未开始</td><td>待定</td></tr>
 <tr><td>19.近似推理</td><td>caigaojiang@gmail.com</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/20</td></tr>
 <tr><td>20.深度生成式模型</td><td>@Bruno-bai</td><td>待定</td><td>进行中</td><td>未开始</td><td>2017/1/15</td></tr>
