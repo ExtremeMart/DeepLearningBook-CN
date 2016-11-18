@@ -41,8 +41,11 @@ http://www.deeplearningbook.org/
 ###感谢全体贡献者(持续更新) </br>
 @extreme-assistant,@LaurenLuoYun,@BrowningWan,@huangynn,@ZhangXinNan,@rexnxiaobai，@yinruiqing
 
-###翻译模板说明(简要说明，后续会详细) </br>
-大家统一使用本项目下的latex模板翻译，排版选项使用xelatex
+###翻译须知 </br>
+大家将统一使用latex模板排版
+1.翻译人员认领章节后，会分配一个链接地址，大家按照链接地址来在线翻译就可以
+2.由校对人员校对翻译后经大家阅读没有问题会上传到git上release
+3.大家随时可以对已经release的版本进行修正
 
 ###联系我们 </br>
 如有任何疑问或者想加入小组，请联系小助手（微信：Extreme-Vision,邮箱：developer@extremevision.com.cn）
