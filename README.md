@@ -35,6 +35,9 @@ http://www.deeplearningbook.org/
 *注:每一章节都有若干小节，所以翻译者可以不只一人，进行中的翻译也可以继续添加翻译者。
 另我们非常缺有经验的校对人员，如有意加入，请联系小助手,谢谢。
 
+###当前校对人员(持续更新) </br>
+@ZhangXinNan,@rexnxiaobai，@ysh329
+
 ###感谢全体贡献者(持续更新) </br>
 @extreme-assistant,@LaurenLuoYun,@BrowningWan,@huangynn,@ZhangXinNan,@rexnxiaobai，@yinruiqing
 
