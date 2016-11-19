@@ -40,7 +40,7 @@
 另我们非常缺有经验的校对人员，如有意加入，请联系小助手,谢谢。
 
 ###当前校对人员(持续更新) </br>
-@ZhangXinNan,@rexnxiaobai,@AdolfKing,@davidjohn001,@davidjohn001
+@ZhangXinNan,@rexnxiaobai,@AdolfKing,@davidjohn001,@oneTaken
 
 ###感谢全体贡献者(持续更新) </br>
 @extreme-assistant,@LaurenLuoYun,@BrowningWan,@huangynn,@ZhangXinNan,@rexnxiaobai
