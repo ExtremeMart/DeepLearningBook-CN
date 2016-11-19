@@ -11,7 +11,7 @@ http://www.deeplearningbook.org/
 <tr><td>章节</td><td>翻译者</td><td>校对者</td><td>翻译进度</td><td>校对进度</td><td>翻译deadline</td></tr>
 <tr><td>0.目录、序言</td><td>@huangynn</td><td>@ZhangXinNan</td><td>已完成</td><td>进行中</td><td>2016/11/30，2016/11/27</td></tr>
 <tr><td>1.深度学习介绍</td><td>@huangynn</td><td>@ZhangXinNan（1.0-1.1）,@rexnxiaobai（1.2）</td><td>已完成</td><td>进行中</td><td>2016/11/30，2016/11/27</td></tr>
-<tr><td>2.线性代数</td><td>pascal_meng@outlook.com</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/11/30</td></tr>
+<tr><td>2.线性代数</td><td>pascal_meng@outlook.com</td><td>@swordspoet</td><td>进行中</td><td>未开始</td><td>2016/11/30</td></tr>
 <tr><td>3.概率论与信息论</td><td>@wulemilly,@msnh</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/11/30</td></tr>
 <tr><td>4.数值优化</td><td>@BrowningWan（4.0-4.3），cypress1010@sina.com（4.4-4.5）</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/15</td></tr>
 <tr><td>5.机器学习基础</td><td>@kakaguotao(5.2-5.6)，@KaiserW(5.7-5.11)，@yinruiqing(5.1)</td><td>待定</td><td>进行中(5.1.1-5.1.3已翻完)</td><td>未开始</td><td>2016/12/20、2016/12/30、2016/11/20</td></tr>
