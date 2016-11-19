@@ -1,8 +1,10 @@
-\chapter{对抗分区函数}
+\chapter{处理配分函数}
 \label{chap:18}
+% Partition Function 配分函数的定义见 wiki：https://www.wikiwand.com/zh/%E9%85%8D%E5%88%86%E5%87%BD%E6%95%B0
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%% author:quxiaofeng %%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-如 Sec. 16.2.2 中所见，很多概率模型是用（非正态/未标准化/unnormalized）概率分布\(\widetilde{p}(x;\theta)\)。
+如 \remove{16.2.2 节}中所见，\add{很多概率模型（一般称为无向图模型）}是用\consider{（非正态/未标准化/unnormalized）概率分布 \mbox{ \(\widetilde{p}(\bm{x};\bm{\theta})\)} }定义的。用配分函数\footnote{译者注：配分函数（Partition Function）的定义见 wiki：\url{https://www.wikiwand.com/zh/\%E9\%85\%8D\%E5\%88\%86\%E5\%87\%BD\%E6\%95\%B0}}\(Z(\bm{\theta})\)去除\(\widetilde{p}\)来得到一个概率分布：
+\[p(\bm{x};\bm{\theta})=\frac{1}{Z(\bm{\theta})}\widetilde{p}(\bm{x};\bm{\theta}).\]

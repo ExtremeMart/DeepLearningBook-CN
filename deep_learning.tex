@@ -20,6 +20,20 @@
 \usepackage{graphicx}
 \usepackage[english]{babel}
 
+% *** Editing Commands ***
+\usepackage{xcolor}
+\usepackage[normalem]{ulem} % use normalem to protect \emph
+\newcommand\add{\bgroup\markoverwith
+  {\textcolor{green}{\rule[-.5ex]{.1pt}{2.5ex}}}\ULon}
+\newcommand\remove{\bgroup\markoverwith
+  {\textcolor{red}{\rule[-.5ex]{.1pt}{2.5ex}}}\ULon}
+\newcommand{\consider}{\bgroup\markoverwith
+  {\textcolor{yellow}{\rule[-.5ex]{.1pt}{2.5ex}}}\ULon}
+  
+% *** URL Support ***
+\usepackage{url}
+
+
 \newenvironment{dedication}
 {
    \cleardoublepage
@@ -63,6 +77,9 @@
 
 \frontmatter
 \maketitle
+\begin{itemize}
+\item 
+\end{itemize}
 
 \tableofcontents
 \listoffigures
