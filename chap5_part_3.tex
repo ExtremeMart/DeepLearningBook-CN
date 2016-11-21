@@ -1,0 +1,75 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% author:KaiserW %%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% part:5.7-5.11  %%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{监督学习算法}
+\label{sec:5.7}
+前承\ref{sec:5.1.3}节，有监督学习（Supervised Learning）简单来讲就是一种学习算法，它会学着在某些输入和某些输出之间建立关联，这些输入\textbf{x}和输出\textbf{y}来自于训练集中的样本。很多时候，输出\textbf{y}很难自动采集，而必须由一位人工“监督者”(supervisor)提供，当然即便训练集的拟合目标已经自动采集完成，“监督学习”的名称仍然适用。
+\subsection{概率监督学习}
+\label{sec.5.7.1}
+本书提到的大多数监督学习算法都是基于对概率分布$p(y|x)$的预测。我们可以简单地应用最大似然估计(maximum likelihood estimation)来找到分布$p(y|x;\theta)$参数族的最佳参数向量$\theta$。
+
+已知线性回归(linear regression)对应参数族
+\begin{equation}
+	p(y|x;\theta) = \mathbb{N} (y;\theta^{T}, \textbf{\textit{I}})
+  	\label{form:5.80}
+\end{equation}
+
+通过定义不同族的概率分布，我们可以将线性回归推广到分类(classification)情景。如果我们有两个类别，类0和类1，那么接下来只需确定其中一个类的的概率就可以了。类1的概率自然也就决定了类0的概率，因为两个概率值相加必然为1.
+基于平均值将实数域上的正态分布进行参数化，这一分布我们也用于线性回归，这里的平均值可以是任意值。但是二元变量的分布则更加复杂一些，因为其平均值必然始终落在0和1之间。一种解决方案是应用逻辑函数（logistic function， 也称sigmoid函数）将线性函数的输出值挤压到(0,1)区间，转换后的值可以理解为是一个概率：
+\begin{equation}
+	p(y=1|x;\theta) = \sigma (\theta^{T}x)
+  	\label{form:5.80}
+\end{equation}
+
+这一方法即是逻辑回归(logistic regression)，这名字有些古怪，因为我们实际上用这个模型做分类而不是回归。
+对于线性回归，我们可以解正规方程(normal equations)以求得最优权重。而逻辑回归就要复杂一些，它的最优权重没有解析解。我们只能通过最大化对数似然率(log-likelihood)来逼近最优解，具体的策略是，应用梯度下降法(gradient descent)使负对数似然率(negative log-likelihood, NLL)最小化。
+
+这一策略基本可以应用在任何监督学习问题中：对于正确类型的输入/输出变量，写下其条件概率分布的参数族。
+
+\subsection{支持向量机}
+\label{sec:5.7.2}
+
+支持向量机(Boser et al., 1992; Cortes and Vapnik, 1995)是最具影响力的监督学习方法之一。该方法与逻辑回归很相似，因为都是由线性函数$\omega^{T}x + b$所驱动。不同于逻辑回归，支持向量机(Support Vector Machine, SVM)并不提供概率值，只有分类结果。当$\omega^{T}x + b$为正，SVM预测为正类；同理当$\omega^{T}x + b$为负，则预测为负类。
+
+支持向量机的关键创新点是\textbf{核技巧}(kernel trick)。核技巧观察到很多机器学习算法可以写作样本的点乘积。例如，支持向量机所用的线性函数可以写作形如
+\begin{equation}
+	\omega^{T}x + b = b + \sum_{i=1}^{m}{\alpha_{i}x^{T} x^{(i)}} 
+    \label{form:5.81}
+\end{equation}
+
+这里$x^{(i)}$是一个训练样本，$\alpha$是系数矢量。
+
+以这种方式重写学习算法之后，我们便可以用特征函数$\phi(x)$的输出和函数$k(\textbf{x}, \textbf{x}^{(i)})=\phi(\textbf{x})\cdot\phi(\textbf{x}^{(i)})$替代$\textbf{x}$，其中的$k(\textbf{x}, \textbf{x}^{(i)})=\phi(x)\cdot\phi(\textbf{x}^{(i)})$就叫做\textbf{核}(kernel)。$\cdot$操作符表示与$\phi(x)^{T}\phi(\textbf{x}^{(i)})$类似的内积。在有些特征空间中，我们可能无法使用真正的矢量内积；在有些无限多维的空间中，我们需要使用其他类型的内积，比如基于积分而不是加法的内积。此类内积的完整推导已经超出了本书的范畴。
+
+用核替代了点积之后，我们可以用以下函数做预测
+\begin{equation}
+	f(x) = b + \sum{i}^{}{\alpha_{i}k(x,x^{(i}}
+	\label{form:5.82}
+\end{equation}
+
+此函数对$textbf{x}$是非线性的，但是$\phi(\textbf{x})$和$f(\textbf{x}$之间是线性关系。并且$\alpha$和$f(\textbf{x}$也是线性关系。以下过程与基于核的方程都是严格等效的：对所有输入应用$\phi(\textbf{x}$，然后在新的变换空间中学习线性模型。
+
+核技巧的强大有两重原因。首先，它允许我们并使用保证有效收敛的凸优化(convex optimization)技术，把对$x$的非线性函数当作线性的来学习。这是因为我们认为$\phi$是不变的，只优化$\alpha$，换言之，优化算法可以把决策方程在另一个空间中看作线性的。其次，相比于直接构建两个$\phi(\textbf{x})$矢量并显式求点积，核函数$k$的计算效率往往更高。
+
+某些情况下，$\phi(\textbf{x})$甚至可以是无限维的，直接的显式求解将导致无穷的计算消耗。多数情况下，$k(\textbf{x}, \textbf{x'})$是$\textbf{x}$的非线性可解函数，即使$\phi(\textbf{x})$不可解。作为无限维特征空间中可解核的例子，我们构建一个特征映射，从非负整数x到$\phi(\textbf{x})$，设想该映射返回一个包含x个1及无穷多个0的矢量。我们可以写一个核函数$k(\textbf{x}, \textbf{x'}) = min(x, x^{i})$，这与无限维的点积严格等价。
+
+最常用的核是高斯核(Gaussian kernel)
+\begin{equation}
+	k(u, v) = \mathbb{N}(u-v;0, \sigma^{2}I)
+\end{equation}
+$\mathbb{N}(x;\mu,\Sigma)$是标准正态密度。这个核也被称为径向基函数(radius basis function, RBF)核，因为其值随着
+
+
+\section{非监督学习算法}
+\label{sec:5.8}
+
+\section{随机梯度下降法}
+\label{sec:5.9}
+
+\section{构建机器学习算法}
+\label{sec:5.10}
+
+\section{深度学习算法的动力}
+\label{sec:5.11}
