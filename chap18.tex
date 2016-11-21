@@ -68,8 +68,37 @@
 \end{equation}
 这一等同的结果只是在 \( \widetilde{p} \) 和 \( \nabla_{\bm\theta}\widetilde{p}(\bm{x})d\bm{x} \) 满足一定的正则化条件时成立。根据测度论，需要满足如下条件：(i) 非正态分布\( \widetilde{p} \) 对任意 \(\bm{\theta}\)都是 \(\bm{x}\) 的勒贝格可积函数；
 
+\begin{equation}
+    \nabla_{\bm{x}}\log{}Z
+    = \mathbb{E}_{\bm{x}\sim{}p(\bm{x})}
+    \nabla_{\bm{\theta}}\log\widetilde{p}(\bm{x})
+\end{equation}
+
 \section{随机最大似然和对比分歧}
 \label{sec:18.2}
+
+\begin{algorithm}
+\DontPrintSemicolon
+设置 \(\epsilon\)，步长，为一个小正数\;
+设置 \(k\)，吉布斯（Gibbs）步长，为一个较大的值，为预热（burn in）提供冗余。在一个小图像块上训练 RBM 大约可以设为 100。\;
+\While{未收敛}{
+    从训练集中抽样一个包含 \(m\) 个样本 \(\{\bm{x}^{(1)},\ldots,\bm{x}^{(m)}\}\) 的微批（minibatch）\;
+}
+\Begin{
+	$V \longleftarrow U$\;
+	$S \longleftarrow \emptyset$\;
+	\For{$x\in X$}{
+		$NbSuccInS(x) \longleftarrow 0$\;
+		$NbPredInMin(x) \longleftarrow 0$\;
+		$NbPredNotInMin(x) \longleftarrow |ImPred(x)|$\;
+	}
+	\For{$x \in X$}{
+		\If{$NbPredInMin(x) = 0$ {\bf and} $NbPredNotInMin(x) = 0$}{
+		$AppendToMin(x)$}
+	}
+}
+\caption{一个简单的蒙特卡洛马尔科夫链算法（MCMC）算法。利用梯度上升来计算带有可解配分函数的对数似然\label{alg:18.1}}
+\end{algorithm}
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering

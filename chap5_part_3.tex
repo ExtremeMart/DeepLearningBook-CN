@@ -41,15 +41,26 @@
 
 这里$x^{(i)}$是一个训练样本，$\alpha$是系数矢量。
 
-以这种方式重写学习算法之后，我们便可以用特征函数$\phi(x)$的输出和函数$k(\textbf{x}, \textbf{x}^{(i)})=\phi(\textbf{x})\cdot\phi(\textbf{x}^{(i)})$替代$\textbf{x}$，其中的$k(\textbf{x}, \textbf{x}^{(i)})=\phi(x)\cdot\phi(\textbf{x}^{(i)})$就叫做\textbf{核}(kernel)。$\cdot$操作符表示与\phi(x)^{T}\phi(\textbf{x}^{(i)})类似的内积。在有些特征空间中，我们可能无法使用真正的矢量内积；在有些无限多维的空间中，我们需要使用其他类型的内积，比如基于积分而不是加法的内积。此类内积的完整推导已经超出了本书的范畴。
+以这种方式重写学习算法之后，我们便可以用特征函数$\phi(x)$的输出和函数$k(\textbf{x}, \textbf{x}^{(i)})=\phi(\textbf{x})\cdot\phi(\textbf{x}^{(i)})$替代$\textbf{x}$，其中的$k(\textbf{x}, \textbf{x}^{(i)})=\phi(x)\cdot\phi(\textbf{x}^{(i)})$就叫做\textbf{核}(kernel)。$\cdot$操作符表示与$\phi(x)^{T}\phi(\textbf{x}^{(i)})$类似的内积。在有些特征空间中，我们可能无法使用真正的矢量内积；在有些无限多维的空间中，我们需要使用其他类型的内积，比如基于积分而不是加法的内积。此类内积的完整推导已经超出了本书的范畴。
 
 用核替代了点积之后，我们可以用以下函数做预测
 \begin{equation}
-	f(x) = b + \sum{i}{\alpha_{i}k(x,x^{(i}}
+	f(x) = b + \sum{i}^{}{\alpha_{i}k(x,x^{(i}}
 	\label{form:5.82}
 \end{equation}
 
-此函数对$textbf{x}$是非线性的
+此函数对$textbf{x}$是非线性的，但是$\phi(\textbf{x})$和$f(\textbf{x}$之间是线性关系。并且$\alpha$和$f(\textbf{x}$也是线性关系。以下过程与基于核的方程都是严格等效的：对所有输入应用$\phi(\textbf{x}$，然后在新的变换空间中学习线性模型。
+
+核技巧的强大有两重原因。首先，它允许我们并使用保证有效收敛的凸优化(convex optimization)技术，把对$x$的非线性函数当作线性的来学习。这是因为我们认为$\phi$是不变的，只优化$\alpha$，换言之，优化算法可以把决策方程在另一个空间中看作线性的。其次，相比于直接构建两个$\phi(\textbf{x})$矢量并显式求点积，核函数$k$的计算效率往往更高。
+
+某些情况下，$\phi(\textbf{x})$甚至可以是无限维的，直接的显式求解将导致无穷的计算消耗。多数情况下，$k(\textbf{x}, \textbf{x'})$是$\textbf{x}$的非线性可解函数，即使$\phi(\textbf{x})$不可解。作为无限维特征空间中可解核的例子，我们构建一个特征映射，从非负整数x到$\phi(\textbf{x})$，设想该映射返回一个包含x个1及无穷多个0的矢量。我们可以写一个核函数$k(\textbf{x}, \textbf{x'}) = min(x, x^{i})$，这与无限维的点积严格等价。
+
+最常用的核是高斯核(Gaussian kernel)
+\begin{equation}
+	k(u, v) = \mathbb{N}(u-v;0, \sigma^{2}I)
+\end{equation}
+$\mathbb{N}(x;\mu,\Sigma)$是标准正态密度。这个核也被称为径向基函数(radius basis function, RBF)核，因为其值随着
+
 
 \section{非监督学习算法}
 \label{sec:5.8}
