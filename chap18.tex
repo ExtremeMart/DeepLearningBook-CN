@@ -61,4 +61,47 @@
 	\nabla_\theta\log\widetilde{p}(\bm{x}).
 \end{align}
 
-这个推导利用了离散 \(\bm{x}\) 的求和。对于连续的 \(\bm{x}\)，利用积分也可以得到相似的结果。
+这个推导利用了离散 \(\bm{x}\) 的求和。对于连续的 \(\bm{x}\)，利用积分也可以得到相似的结果。在连续版的推导中，可以使用积分号下的莱布尼茨法则得到同样的结果
+\begin{equation}
+    \nabla_{\bm{\theta}}\int\widetilde{p}(\bm{x})d\bm{x}
+    = \int\nabla_{\bm\theta}\widetilde{p}(\bm{x})d\bm{x}.
+\end{equation}
+这一等同的结果只是在 \( \widetilde{p} \) 和 \( \nabla_{\bm\theta}\widetilde{p}(\bm{x})d\bm{x} \) 满足一定的正则化条件时成立。根据测度论，需要满足如下条件：(i) 非正态分布\( \widetilde{p} \) 对任意 \(\bm{\theta}\)都是 \(\bm{x}\) 的勒贝格可积函数；
+
+\section{随机最大似然和对比分歧}
+\label{sec:18.2}
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=\textwidth]{fig/chap18/18_1.png} 
+   \caption{算法 18.1 的``正相''和``负相''}
+   \label{fig:18.1}
+\end{figure}
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=\textwidth]{fig/chap18/18_2.png} 
+   \caption{对比分歧的负相（根据算法 18.2）}
+   \label{fig:18.2}
+\end{figure}
+
+\section{伪概率}
+\label{sec:18.3}
+
+\section{评分比对和比率比对}
+\label{sec:18.4}
+
+\section{评分比对的降噪}
+\label{sec:18.5}
+
+\section{噪声抑制期望}
+\label{sec:18.6}
+
+\section{配分函数期望}
+\label{sec:18.7}
+
+\subsection{基于退火算法的重要性采样}
+\label{sec:18.7.1}
+
+\subsection{桥采样}
+\label{sec:18.7.2}
