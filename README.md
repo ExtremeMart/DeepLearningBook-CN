@@ -1,16 +1,15 @@
 # DeepLearningBook-CN
 
-----------
-
 本项目是由[极视角](http://www.extremevision.com.cn)旗下[极市平台](https://github.com/ExtremeMart)(联系人@extreme-assistant,@LaurenLuoYun)联合AG Group(联系人@BrowningWan)组织的Deep Learning(IAN GOODFELLOW,YOSHUA BENGIO,ARRON COURVILLE联合编著)的开放社区中文翻译活动。
 
 *本项目仅用于学习、研究用途，不得用于任何商业用途。
 
-###Deep Learning书籍链接 </br>
+### Deep Learning书籍链接
+
 [http://www.deeplearningbook.org/](http://www.deeplearningbook.org/)
 
+### 当前翻译进度(持续更新)
 
-###当前翻译进度(持续更新) </br>
 <table border="0">
 <tr><td>章节</td><td>翻译者</td><td>校对者</td><td>翻译进度</td><td>校对进度</td><td>翻译deadline</td></tr>
 <tr><td>0.目录、序言</td><td>@huangynn</td><td>@ZhangXinNan</td><td>已完成</td><td>进行中</td><td>2016/11/30，2016/11/27</td></tr>
@@ -36,27 +35,34 @@
 <tr><td>19.近似推理</td><td>caigaojiang@gmail.com</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/20</td></tr>
 <tr><td>20.深度生成式模型</td><td>@Bruno-bai</td><td>待定</td><td>进行中</td><td>未开始</td><td>2017/1/15</td></tr>
 </table>
+
 *注:每一章节都有若干小节，所以翻译者可以不只一人，进行中的翻译也可以继续添加翻译者。
 另我们非常缺有经验的校对人员，如有意加入，请联系小助手,谢谢。
 
-###当前校对人员(持续更新) </br>
+### 当前校对人员(持续更新)
+
 @ZhangXinNan,@rexnxiaobai,@AdolfKing,@davidjohn001,@oneTaken,@zhangcg1987,@wubin7019088
 
-###感谢全体贡献者(持续更新) </br>
+### 感谢全体贡献者(持续更新)
+
 @extreme-assistant,@LaurenLuoYun,@BrowningWan,@huangynn,@ZhangXinNan,@rexnxiaobai
 ，@yinruiqing，@quxiaofeng，@ysh329
-###翻译须知 </br>
-大家将统一使用latex模板排版,排版选项使用xelatex</br>
-1.翻译人员认领章节后，会分配一个链接地址，大家按照链接地址来在线翻译就可以</br>
-2.翻译人员每翻译好一个章节，小助手会上传到git上由相应的校对人员来校对</br>
-3.校对人员需要从git上下载对应的章节，直接在tex上修改，修改完成提交到git，经大家阅读没有问题后会release</br>
-4.大家随时可以对已经release的版本进行修正
 
-###Latex相关教程（由@ysh329贡献） </br>
-[《一份不太简短的LATEX介绍》](http://bbs.sciencenet.cn/home.php?mod=attachment&id=45014)</br>
-[在线的tex公式编辑器](http://www.codecogs.com/latex/eqneditor.php)
+### 翻译须知
 
-###联系我们 </br>
+大家将统一使用latex模板排版,排版选项使用 `xelatex`
+
+1. 翻译人员认领章节后，会分配一个链接地址，大家按照链接地址来在线翻译就可以
+2. 翻译人员每翻译好一个章节，小助手会上传到git上由相应的校对人员来校对
+3. 校对人员需要从git上下载对应的章节，直接在tex上修改，修改完成提交到git，经大家阅读没有问题后会release
+4. 大家随时可以对已经release的版本进行修正
+
+### Latex相关教程（由@ysh329贡献）
+
++ [《一份不太简短的LATEX介绍》](http://bbs.sciencenet.cn/home.php?mod=attachment&id=45014)
++ [在线的tex公式编辑器](http://www.codecogs.com/latex/eqneditor.php)
+
+### 联系我们
 如有任何疑问或者想加入小组，请联系小助手（微信：Extreme-Vision,邮箱：developer@extremevision.com.cn）
 
 
