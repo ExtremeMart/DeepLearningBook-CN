@@ -12,8 +12,8 @@
 
 <table border="0">
 <tr><td>章节</td><td>翻译者</td><td>校对者</td><td>翻译进度</td><td>校对进度</td><td>翻译deadline</td></tr>
-<tr><td>0.目录、序言</td><td>@huangynn</td><td>@ZhangXinNan</td><td>已完成</td><td>进行中</td><td>2016/11/30，2016/11/27</td></tr>
-<tr><td>1.深度学习介绍</td><td>@huangynn</td><td>@ZhangXinNan（1.0-1.1）,@rexnxiaobai（1.2）</td><td>已完成</td><td>进行中</td><td>2016/11/30，2016/11/27</td></tr>
+<tr><td>0.目录、序言</td><td>@huangynn</td><td>@lizhiyuanUSTC</td><td>已完成</td><td>进行中</td><td>2016/11/30，2016/11/27</td></tr>
+<tr><td>1.深度学习介绍</td><td>@huangynn</td><td>@lizhiyuanUSTC（1.0-1.1）,@rexnxiaobai（1.2）</td><td>已完成</td><td>进行中</td><td>2016/11/30，2016/11/27</td></tr>
 <tr><td>2.线性代数</td><td>pascal_meng@outlook.com</td><td>@swordspoet</td><td>进行中</td><td>未开始</td><td>2016/11/30</td></tr>
 <tr><td>3.概率论与信息论</td><td>@wulemilly,@msnh</td><td>@AdolfKing</td><td>进行中</td><td>未开始</td><td>2016/11/30</td></tr>
 <tr><td>4.数值优化</td><td>@BrowningWan（4.0-4.3），cypress1010@sina.com（4.4-4.5）</td><td>@AdolfKing</td><td>进行中</td><td>未开始</td><td>2016/12/15</td></tr>
@@ -29,7 +29,7 @@
 <tr><td>13.线性模型</td><td>@shalong</td><td>@wubin7019088</td><td>进行中</td><td>未开始</td><td>2017/1/20</td></tr>
 <tr><td>14.自编码器</td><td>@hijeffery（14.1-14.6）@Euniceu（14.7-14.9）</td><td>@wubin7019088</td><td>进行中</td><td>未开始</td><td>2016/12/5、2016/12/15</td></tr>
 <tr><td>15.表征学习</td><td>@tangzhenyu，@chongruo</td><td>@zhangcg1987</td><td>进行中</td><td>未开始</td><td>2016/12/25</td></tr>
-<tr><td>16.深度学习的结构化概率模型</td><td>@wysroy</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/28</td></tr>
+<tr><td>16.深度学习的结构化概率模型</td><td>@wysroy</td><td>@Justin1904</td><td>进行中</td><td>未开始</td><td>2016/12/28</td></tr>
 <tr><td>17.蒙特卡洛方法</td><td>@kiseliu（17.0-17.3），@geruihai（17.4-17.5）</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/5</td></tr>
 <tr><td>18.对抗分区函数</td><td>@quxiaofeng</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/5</td></tr>
 <tr><td>19.近似推理</td><td>caigaojiang@gmail.com</td><td>待定</td><td>进行中</td><td>未开始</td><td>2016/12/20</td></tr>
@@ -41,21 +41,26 @@
 
 ### 当前校对人员(持续更新)
 
-@ZhangXinNan,@rexnxiaobai,@AdolfKing,@davidjohn001,@oneTaken,@zhangcg1987,@wubin7019088
+@lizhiyuanUSTC,@rexnxiaobai,@AdolfKing,@davidjohn001,@oneTaken,@zhangcg1987,@wubin7019088,@Justin1904
 
 ### 感谢全体贡献者(持续更新)
 
-@extreme-assistant,@LaurenLuoYun,@BrowningWan,@huangynn,@ZhangXinNan,@rexnxiaobai
+@extreme-assistant,@LaurenLuoYun,@BrowningWan,@huangynn,@lizhiyuanUSTC,@rexnxiaobai
 ，@yinruiqing，@quxiaofeng，@ysh329
 
 ### 翻译须知
 
 大家将统一使用latex模板排版,排版选项使用 `xelatex`
 
-1. 翻译人员认领章节后，会分配一个链接地址，大家按照链接地址来在线翻译就可以
-2. 翻译人员每翻译好一个章节，小助手会上传到git上由相应的校对人员来校对
-3. 校对人员需要从git上下载对应的章节，直接在tex上修改，修改完成提交到git，经大家阅读没有问题后会release
-4. 大家随时可以对已经release的版本进行修正
+1.翻译人员认领章节后，向小助手私信overleaf在线项目地址，每个翻译人员在该项目对应一个tex文件，文件开头表明了翻译人员的名字，以及负责的翻译的部分。
+
+2.Overleaf上翻译的章节都已经上传到git项目的overleaf分支，文件结构是一样的。请翻译人员每翻译一小节，直接在git项目中的overleaf分支找到自己对应的文件修改提交。
+ 
+3.校对人员直接在git上overleaf分支校对自己负责的章节，如果全部翻译修改完毕，直接merge到master分支。经大家阅读没有问题后会release。
+
+4 最后会请一个有经验的校对人员对所有已校对的进行总核查，发出总版本。
+
+5.大家随时可以对已经release的版本进行修正。
 
 ### Latex相关教程（由@ysh329贡献）
 
