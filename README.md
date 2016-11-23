@@ -27,7 +27,7 @@
 <tr><td>11.实战方法</td><td>@rickymf4</td><td>@davidjohn001</td><td>进行中</td><td>未开始</td><td>2017/1/20</td></tr>
 <tr><td>12.应用</td><td>@MalcolmSun(12.0-12.3),@chaocraig(12.4-12.6)</td><td>@oneTaken</td><td>进行中</td><td>未开始</td><td>2016/12/25</td></tr>
 <tr><td>13.线性模型</td><td>@shalong</td><td>@wubin7019088</td><td>进行中</td><td>未开始</td><td>2017/1/20</td></tr>
-<tr><td>14.自编码器</td><td>@hijeffery（14.1-14.6）@Euniceu（14.7-14.9）</td><td>@wubin7019088</td><td>进行中</td><td>未开始</td><td>2016/12/5、2016/12/15</td></tr>
+<tr><td>14.自编码器</td><td>@hijeffery（14.0-14.6）@Euniceu（14.7-14.9）</td><td>@wubin7019088</td><td>进行中</td><td>未开始</td><td>2016/12/5、2016/12/15</td></tr>
 <tr><td>15.表征学习</td><td>@tangzhenyu，@chongruo</td><td>@zhangcg1987</td><td>进行中</td><td>未开始</td><td>2016/12/25</td></tr>
 <tr><td>16.深度学习的结构化概率模型</td><td>@wysroy</td><td>@Justin1904</td><td>进行中</td><td>未开始</td><td>2016/12/28</td></tr>
 <tr><td>17.蒙特卡洛方法</td><td>@kiseliu（17.0-17.3），@geruihai（17.4-17.5）</td><td>待定</td><td>进行中（17.1已翻完）</td><td>未开始</td><td>2016/12/5</td></tr>
