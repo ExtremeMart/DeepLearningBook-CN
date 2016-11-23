@@ -41,6 +41,9 @@
 \usepackage{amsmath}
 \numberwithin{equation}{chapter}
 
+% *** Algorithm Support ***
+\usepackage[ruled,lined,algochapter]{algorithm2e}
+
 \newenvironment{dedication}
 {
    \cleardoublepage
@@ -84,9 +87,7 @@
 
 \frontmatter
 \maketitle
-\begin{itemize}
-\item 
-\end{itemize}
+
 
 \tableofcontents
 \listoffigures
@@ -149,7 +150,8 @@
 \input{chap9_part_2.tex}
 \input{chap10.tex}
 \input{chap11.tex}
-\input{chap12.tex}
+\input{chap12_part_1.tex}
+\input{chap12_part_2.tex}
 
 
 \part{深度学习研究}
