@@ -1,6 +1,6 @@
 # DeepLearningBook-CN
 
-本项目是由[极视角](http://www.extremevision.com.cn)旗下[极市平台](https://github.com/ExtremeMart)(联系人@extreme-assistant,@LaurenLuoYun)联合AG Group(联系人@BrowningWan)组织的Deep Learning(IAN GOODFELLOW,YOSHUA BENGIO,ARRON COURVILLE联合编著)的开放社区中文翻译活动。
+本项目是由[极视角](http://www.extremevision.com.cn)旗下[极市平台](https://github.com/ExtremeMart)(联系人@extreme-assistant, @LaurenLuoYun)联合 AG Group(联系人@BrowningWan)组织的 Deep Learning(IAN GOODFELLOW, YOSHUA BENGIO, ARRON COURVILLE 联合编著)的开放社区中文翻译活动。
 
 *本项目仅用于学习、研究用途，不得用于任何商业用途。
 
@@ -37,37 +37,36 @@
 </table>
 
 *注:每一章节都有若干小节，所以翻译者可以不只一人，进行中的翻译也可以继续添加翻译者。
+
 另我们非常缺有经验的校对人员，如有意加入，请联系小助手,谢谢。
 
 ### 当前校对人员(持续更新)
 
-@mengyang0529,@rexnxiaobai,@AdolfKing,@davidjohn001,@oneTaken,@lizhiyuanUSTC,@zhangcg1987,@wubin7019088
+@mengyang0529, @rexnxiaobai, @AdolfKing, @davidjohn001, @oneTaken, @lizhiyuanUSTC, @zhangcg1987, @wubin7019088.
 
 ### 感谢全体贡献者(持续更新)
 
-@extreme-assistant,@LaurenLuoYun,@BrowningWan,@huangynn,@rexnxiaobai
-，@yinruiqing，@quxiaofeng，@ysh329
+@extreme-assistant, @LaurenLuoYun, @BrowningWan, @huangynn, @rexnxiaobai, @yinruiqing, @quxiaofeng, @ysh329.
 
 ### 翻译须知
 
 大家将统一使用latex模板排版,排版选项使用 `xelatex`
 
-1.翻译人员认领章节后，向小助手私信overleaf在线项目地址，每个翻译人员在该项目对应一个tex文件，文件开头表明了翻译人员的名字，以及负责的翻译的部分。
+1. 翻译人员认领章节后，向小助手私信索取 overleaf 在线项目地址，每个翻译人员在该项目对应一个 tex 文件，文件开头表明了翻译人员的名字，以及负责的翻译的部分。
 
-2.Overleaf上翻译的章节都已经上传到git项目的overleaf分支，文件结构是一样的。请翻译人员每翻译一小节，直接在git项目中的overleaf分支找到自己对应的文件修改提交。
+2. Overleaf 上翻译的章节都已经上传到 github 项目的 overleaf 分支，文件结构是一样的。请翻译人员每翻译一小节，直接在 github 项目中的 overleaf 分支找到自己对应的文件修改提交。
 
-3.校对人员直接在git上overleaf分支校对自己负责的章节，如果全部翻译修改完毕，直接merge到master分支。经大家阅读没有问题后会release。
+3. 校对人员直接在 github 上 overleaf 分支校对自己负责的章节，如果全部翻译修改完毕，直接 merge 到 master 分支。经大家阅读没有问题后会 release。
 
-4.最后会请一个有经验的校对人员对所有校对的进行核对，发出总版本。
+4. 最后会请一个有经验的校对人员对所有校对的进行核对，发出总版本。
 
-5.大家随时可以对已经release的版本进行修正。
+5. 大家随时可以对已经 release 的版本进行修正。
 
-### Latex相关教程（由@ysh329贡献）
+### LaTeX 相关教程（由@ysh329贡献）
 
-+ [《一份不太简短的LATEX介绍》](http://bbs.sciencenet.cn/home.php?mod=attachment&id=45014)
-+ [在线的tex公式编辑器](http://www.codecogs.com/latex/eqneditor.php)
++ [《一份不太简短的 LaTeX 介绍》](http://bbs.sciencenet.cn/home.php?mod=attachment&id=45014)
++ [在线的 TeX 公式编辑器](http://www.codecogs.com/latex/eqneditor.php)
 
 ### 联系我们
-如有任何疑问或者想加入小组，请联系小助手（微信：Extreme-Vision,邮箱：developer@extremevision.com.cn）
 
-
+如有任何疑问或者想加入小组，请联系小助手（微信：Extreme-Vision,邮箱：developer@extremevision.com.cn）。
