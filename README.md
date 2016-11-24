@@ -1,4 +1,4 @@
-# DeepLearningBook-CN
+ang@# DeepLearningBook-CN
 
 本项目是由[极视角](http://www.extremevision.com.cn)旗下[极市平台](https://github.com/ExtremeMart)(联系人@extreme-assistant, @LaurenLuoYun)联合 AG Group(联系人@BrowningWan)组织的 Deep Learning(IAN GOODFELLOW, YOSHUA BENGIO, ARRON COURVILLE 联合编著)的开放社区中文翻译活动。
 
@@ -28,7 +28,7 @@
 <tr><td>12.应用</td><td>@MalcolmSun(12.0-12.3),@chaocraig(12.4-12.6)</td><td>@oneTaken</td><td>进行中</td><td>未开始</td><td>2016/12/25</td></tr>
 <tr><td>13.线性模型</td><td>@shalong</td><td>@wubin7019088</td><td>翻译1%</td><td>未开始</td><td>2017/1/20</td></tr>
 <tr><td>14.自编码器</td><td>@hijeffery（14.0-14.6）@Euniceu（14.7-14.9）</td><td>@wubin7019088</td><td>14.1，14.6已提交到git</td><td>未开始</td><td>2016/12/5、2016/12/15</td></tr>
-<tr><td>15.表征学习</td><td>@tangzhenyu，@chongruo</td><td>@zhangcg1987</td><td>已翻译前三页</td><td>未开始</td><td>2016/12/25</td></tr>
+<tr><td>15.表征学习</td><td>@tangzhenyu，@chongruo</td><td>@zhangcg1987</td><td>@tangzhenyu已翻译25%</td><td>未开始</td><td>2016/12/25</td></tr>
 <tr><td>16.深度学习的结构化概率模型</td><td>@wysroy</td><td>@Justin1904</td><td>进行中</td><td>未开始</td><td>2016/12/28</td></tr>
 <tr><td>17.蒙特卡洛方法</td><td>@kiseliu（17.0-17.3），@geruihai（17.4-17.5）</td><td>待定</td><td>17.1已提交到git,17.4已翻完</td><td>未开始</td><td>2016/12/5</td></tr>
 <tr><td>18.对抗分区函数</td><td>@quxiaofeng</td><td>待定</td><td>翻译到18.2</td><td>未开始</td><td>2016/12/5</td></tr>
