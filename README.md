@@ -15,7 +15,7 @@
 <tr><td>0.目录、序言</td><td>@huangynn</td><td>@lizhiyuanUSTC</td><td>已完成</td><td>进行中</td><td>2016/11/30，2016/11/27</td></tr>
 <tr><td>1.深度学习介绍</td><td>@huangynn</td><td>@lizhiyuanUSTC（1.0-1.1）,@rexnxiaobai（1.2）</td><td>已完成</td><td>进行中</td><td>2016/11/30，2016/11/27</td></tr>
 <tr><td>2.线性代数</td><td>pascal_meng@outlook.com</td><td>@swordspoet</td><td>已12月4日前翻完</td><td>未开始</td><td>2016/12/04</td></tr>
-<tr><td>3.概率论与信息论</td><td>@wulemilly,@msnh</td><td>@AdolfKing</td><td>已翻译到3.13</td><td>未开始</td><td>2016/11/30</td></tr>
+<tr><td>3.概率论与信息论</td><td>@wulemilly,@msnh</td><td>@AdolfKing</td><td>已翻译到3.13</td><td>未开始</td><td>2016/12/15</td></tr>
 <tr><td>4.数值优化</td><td>@BrowningWan（4.0-4.3），cypress1010@sina.com（4.4-4.5）</td><td>@AdolfKing</td><td>已翻译到4.3，4.5</td><td>未开始</td><td>2016/12/15</td></tr>
 <tr><td>5.机器学习基础</td><td>@kakaguotao(5.2-5.6)，@KaiserW(5.7-5.11)，@yinruiqing(5.1)</td><td>@AdolfKing</td><td>5.1已翻完，@kaiserw翻译到5.9</td><td>进行中</td><td>2016/12/20、2016/12/30、2016/11/20</td></tr>
 <tr><td>6.深度前馈网络</td><td>jim1949@163.com(6.0-6.2),@liviclee(6.3-6.7)</td><td>@AdolfKing</td><td>已翻译5页</td><td>未开始</td><td>2016/12/18、2016/12/10</td></tr>
@@ -45,7 +45,7 @@
 
 ### 感谢全体贡献者(持续更新)
 
-@extreme-assistant, @LaurenLuoYun, @BrowningWan, @huangynn, @rexnxiaobai, @yinruiqing, @quxiaofeng, @ysh329，@kiseliu，@AdolfKing，@hijeffery，@lizhiyuanUSTC
+@extreme-assistant, @LaurenLuoYun, @BrowningWan, @huangynn, @rexnxiaobai, @yinruiqing, @quxiaofeng, @ysh329，@kiseliu，@AdolfKing，@hijeffery，@lizhiyuanUSTC，@geruihai
 
 ### 翻译须知
 
