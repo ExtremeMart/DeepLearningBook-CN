@@ -1,4 +1,4 @@
-\chapter{处理配分函数}
+\chapter{直面配分函数}
 \label{chap:18}
 % Partition Function 配分函数的定义见 wiki：https://www.wikiwand.com/zh/%E9%85%8D%E5%88%86%E5%87%BD%E6%95%B0
 
@@ -6,7 +6,7 @@
 %%%%%%%%%%%%%%%%%%% author:quxiaofeng %%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-如 \consider{16.2.2 节}中所见，很多概率模型（一般称为无向图模型）是用\consider{（非正态/未标准化/unnormalized）概率分布 \mbox{ \(\widetilde{p}(\bm{x};\bm{\theta})\)} }定义的。用配分函数\footnote{译者注：配分函数（Partition Function）的定义见 wiki：\url{https://www.wikipedia.org/zh/\%E9\%85\%8D\%E5\%88\%86\%E5\%87\%BD\%E6\%95\%B0}}\(Z(\bm{\theta})\)去除\(\widetilde{p}\)来得到一个概率分布：
+如 \consider{16.2.2 节}中所见，很多概率模型（一般称为无向图模型）是用\consider{非标准化（unnormalized）}的概率分布 \(\widetilde{p}(\bm{x};\bm{\theta})\) 定义的。必须要用配分函数 \(Z(\bm{\theta})\) \footnote{译者注：配分函数（Partition Function）的定义见 wiki：\url{https://www.wikipedia.org/zh/\%E9\%85\%8D\%E5\%88\%86\%E5\%87\%BD\%E6\%95\%B0}} 去除 \(\widetilde{p}\) 才能得到有效的概率分布：
 \begin{equation}
     p(\bm{x};\bm{\theta})
     = \frac{1}{Z(\bm{\theta})}\widetilde{p}(\bm{x};\bm{\theta}).
@@ -23,7 +23,7 @@
 
 这个运算对于很多常用模型来说是\consider{不可解的（intractable）}。
 
-如\consider{20 章}所见，有些深度学习模型在设计上是有可解标准化常量的，或者无需计算\(p(\bm{x})\)。但其它的模型就需要直接面对不可解配分函数的问题了。本章我们讨论训练和评估具有不可解配分函数的模型的方法。
+如\consider{20 章}所见，有些深度学习模型在设计上是有可解标准化常量的，或者设计为无需计算 \(p(\bm{x})\)。但其它的模型就需要直接面对不可解配分函数的问题了。本章我们讨论训练和评估具有不可解配分函数的模型的方法。
 
 \section{对数似然梯度}
 \label{sec:18.1}
@@ -66,13 +66,20 @@
     \nabla_{\bm{\theta}}\int\widetilde{p}(\bm{x})d\bm{x}
     = \int\nabla_{\bm\theta}\widetilde{p}(\bm{x})d\bm{x}.
 \end{equation}
-这一等同的结果只是在 \( \widetilde{p} \) 和 \( \nabla_{\bm\theta}\widetilde{p}(\bm{x})d\bm{x} \) 满足一定的正则化条件时成立。根据测度论，需要满足如下条件：(i) 非正态分布\( \widetilde{p} \) 对任意 \(\bm{\theta}\)都是 \(\bm{x}\) 的勒贝格可积函数；
+这一等同的结果只是在 \( \widetilde{p} \) 和 \( \nabla_{\bm\theta}\widetilde{p}(\bm{x})d\bm{x} \) 满足一定的正则化条件时成立。根据测度论，需要满足如下条件：(i) 非正态分布\( \widetilde{p} \) 对每一个 \(\bm{\theta}\)都是 \(\bm{x}\) 的勒贝格可积函数；(ii) 梯度 \( \nabla_{\bm\theta}\widetilde{p}(\bm{x}) \) 必须对所有 \(\bm\theta\) 和几乎所有 \(\bm x\) 都存在；(iii) 必须存在一个 \( \nabla_{\bm\theta}\widetilde{p}(\bm{x}) \) \consider{的可积确界函数} \(R({\bm x})\)，使得 \(\max_i|\frac{\partial}{\partial \theta_i}\widetilde{p}(\bm{x})| \leq R(\bm{x}) \) 对所有 \(\bm\theta\) 和几乎所有 \(\bm x\) 都成立。幸好，常见机器学习模型都具有这些性质。
 
-\begin{equation}
+这种一致性
+\begin{equation}\label{eqn:18.15}
     \nabla_{\bm{x}}\log{}Z
     = \mathbb{E}_{\bm{x}\sim{}p(\bm{x})}
     \nabla_{\bm{\theta}}\log\widetilde{p}(\bm{x})
 \end{equation}
+是蒙特卡洛方法经过适当改进后可以近似地求得配分函数可解模型的最大似然的基础。
+
+学习无向图模型的蒙特卡洛方法为我们提供了直观的框架，可以同时考虑正相和负相。正相，根据从数据中提取的 \(\bm x\) 提高 \(\log\widetilde{p}(\bm x)\)。负相，根据模型分布降低配分函数降低 \(\log\widetilde{p}(\bm x)\)。
+
+在深度学习文献中，一般把 \(\log\widetilde{p}\) \consider{参数化（parameterize）}为能量函数\consider{(公式 16.7)}。
+这里，我们可以把正相解释为压低训练样本的能量；把负相解释为抬高模型中央本的能量，参见图~\ref{fig:18.1}。
 
 \section{随机最大似然和对比分歧}
 \label{sec:18.2}
@@ -80,14 +87,14 @@
 \begin{algorithm}
 \DontPrintSemicolon
 设置 \(\epsilon\)，步长，应设为较小正数。\;
-设置 \(k\)，吉布斯（Gibbs）步长，为一个较大的值，为预热（burn in）提供冗余。在一个小图像块上训练 RBM 大约可以设为 100。\;
+设置 \(k\)，吉布斯（Gibbs）步长，设置时应考虑为预热（burn in）提供冗余，设置一个较大的值。在一个小图像块上训练 RBM 大约可以设为 100。\;
 \While{未收敛}{
     从训练集中抽样一个包含 \(m\) 个样本 \(\{\bm{x}^{(1)},\ldots,\bm{x}^{(m)}\}\) 的小批（minibatch）\;
     \(\bm{g} \longleftarrow \frac{1}{m}\sum^m_{i=1}
     	\nabla_{\bm{\theta}}\log\widetilde{p}(\bm{x}^{(i)};\bm{\theta})\).\;
-    用随机数初始化一组 \(m\) 个样本（可以使用例如均匀分布或正态分布，或者也可以使用与目标边缘分布想匹配的分布）。\;
+    用随机数初始化一组 \(m\) 个样本 \(\{\widetilde{\bm{x}}^{(1)},\ldots,\widetilde{\bm{x}}^{(m)}\}\)（可以使用均匀分布或正态分布，或者也可以使用与目标边缘分布相匹配的分布）。\;
     \For{\(i=1\) to \(k\)}{
-    	\For{\(i=1\) to \(k\)}{
+    	\For{\(j=1\) to \(m\)}{
         	\(\widetilde{\bm{x}}^{(j)} 
             \longleftarrow \text{吉布斯更新}(\widetilde{\bm{x}}^{(j)}).\)\;
         }
@@ -98,27 +105,50 @@
     \(\bm{\theta} \longleftarrow
     	\bm{\theta} + \epsilon\bm{g}\)\;
 }
-\caption{一个简单的蒙特卡洛马尔科夫链算法（MCMC）算法。利用梯度上升来计算带有可解配分函数的对数似然\label{alg:18.1}}
+\caption{一个朴素的蒙特卡洛马尔科夫链算法（MCMC）算法。利用梯度上升来计算带有可解配分函数的最大对数似然。\label{alg:18.1}}
 \end{algorithm}
+
+实现公式~\ref{eqn:18.15} 的一个简单方法，是每次需要梯度的时候，预热一组随机初始化的马尔可夫链，再进行计算。使用随机梯度下降进行学习时，每次计算梯度马尔可夫链都要预热。此方法的训练过程如算法~\ref{alg:18.1} 所示。该方法在内循环中预热马尔可夫链，运算过于复杂，但为更为实际的算法提供了基准。
+
+MCMC 求最大似然，可以看做是在两种力量中取得平衡。一方面，产生数据的地方，推高模型分布；另一方面，模型采样产生的地方压低模型分布。图~\ref{fig:18.1} 所示即为此过程。两种力量分别对应于最大化 \(\log\widetilde{p}\) 和最小化 \(\log Z\)。有几种可行的近似负相的方法。但这些近似方法都可以理解为降低负相计算复杂性的同时，在一些错误的位置压低分布。
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=\textwidth]{fig/chap18/18_1.png} 
-   \caption{算法 18.1 的``正相''和``负相''}
+   \caption{算法~\ref{alg:18.1} 的``正相''和``负相''。（左）正相时，我们从数据分布中采样一些点，然后推高非标准化的概率。数据中更有可能的点会推高得更多。（右）负相时，我们从模型中采样一些点，然后压低它们的非标准化概率。负相抵消了正相为非标准化概率在每一个位置都简单增加一个巨大常量的倾向。当数据分布和模型分布相等时，正相与负相在一点上推高和压低的几率相等。这时，梯度（的期望）就没有了，训练必然终止。}
    \label{fig:18.1}
 \end{figure}
+
+负相需要从模型分布中提取样本，这一过程开始理解为从模型中找一些非常有信心的点。
+因为负相降低这些点的概率，一般认为这些是模型对世界的错误认知。
+文献中一般称之为\consider{``幻象（Hallucinations）''}或\consider{``神奇粒子（Fantasy particles）''}。
+其实，还真的曾有人提出负相可能是人类和其它动物做梦的原因\consider{(Circk and Mitchison, 1983)}。
+其主要概念是说，大脑维护一个对于整个世界的概率模型。清醒时，当真实事件发生时，遵从 \(\log\widetilde{p}\) 的梯度；睡眠时，遵从 \(\log\widetilde{p}\) 的负梯度最小化 \(\log Z\)，同时体验的则是当前模型的采样。
+这个假说可以很好地解说正相和负相，他们之间的关系及其在算法中的作用，但并未被神经科学实验所证实。
+机器学习模型中，经常要同时使用正相与负相，而不是像清醒与快速动眼睡眠一样分时进行。
+如 \consider{19.5} 节所示，其它机器学习算法因为其它原因从模型分布中抽取样本，也可以算作睡眠时的梦境。
+
+根据对于正相和负相学习理解，我们可以设计一个比算法~\ref{alg:18.1} 简单一点的方法。朴素 MCMC 算法主要的复杂度在每次循环中都需要用随机初始化预热马尔可夫链。一个很自然的解决方法是用一个与模型分布很接近的分布来初始化马尔可夫链，这样预热就不需要那么多步骤。
+
+对比分歧（Contrastive Divergence，简称为 CD 或 CD-k，即 k 步吉布斯对比分歧）算法，用数据分布中的采样来初始化每步的马尔可夫链。\consider{（Hinton，2000，2010）}
+从数据分布中采样，是 0 成本的，因为数据已经在数据集里准备好了。
+一开始，数据分布与模型分布相差很远，负相不会很准确。
+所幸，正相还是准确的，还是会增加数据的模型概率。
+给与正相一定时间发挥作用之后，模型分布就会与数据分布相接近，负相就慢慢变得准确了。
 
 \begin{algorithm}
 \DontPrintSemicolon
 设置 \(\epsilon\)，步长，应设为较小正数。\;
-设置 \(k\)，吉布斯（Gibbs）步长，为一个较大的值，为预热（burn in）提供冗余。在一个小图像块上训练 RBM 大约可以设为 100。\;
+设置 \(k\)，吉布斯（Gibbs）步长，设置时，应考虑马尔可夫链从 \(p_{data}\) 中初始化时，需要从 \(p(\bm{x};\bm{\theta})\)中采样，设置为一个较大的值。在一个小图像块上训练 RBM 大约可以设为 1-20。\;
 \While{未收敛}{
     从训练集中抽样一个包含 \(m\) 个样本 \(\{\bm{x}^{(1)},\ldots,\bm{x}^{(m)}\}\) 的小批（minibatch）\;
     \(\bm{g} \longleftarrow \frac{1}{m}\sum^m_{i=1}
     	\nabla_{\bm{\theta}}\log\widetilde{p}(\bm{x}^{(i)};\bm{\theta})\).\;
-    用随机数初始化一组 \(m\) 个样本（可以使用例如均匀分布或正态分布，或者也可以使用与目标边缘分布想匹配的分布）。\;
+    \For{\(i=1\) to \(m\)}{
+    	\(\widetilde{\bm{x}}^{(1)} \longleftarrow \bm{x}^{(i)}.\)\;
+    }
     \For{\(i=1\) to \(k\)}{
-    	\For{\(i=1\) to \(k\)}{
+    	\For{\(j=1\) to \(m\)}{
         	\(\widetilde{\bm{x}}^{(j)} 
             \longleftarrow \text{吉布斯更新}(\widetilde{\bm{x}}^{(j)}).\)\;
         }
@@ -127,17 +157,40 @@
     	\bm{g} - \frac{1}{m}\sum^m_{i=1}
     	\nabla_{\bm{\theta}}\log\widetilde{p}(\bm{x}^{(i)};\bm{\theta})\).\;
     \(\bm{\theta} \longleftarrow
-    	\bm{\theta} + \epsilon\bm{g}\)\;
+    	\bm{\theta} + \epsilon\bm{g}.\)\;
 }
-\caption{对比分歧算法。用梯度上升优化\label{alg:18.2}}
+\caption{对比分歧算法。利用梯度上升进行优化。\label{alg:18.2}}
 \end{algorithm}
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=\textwidth]{fig/chap18/18_2.png} 
-   \caption{对比分歧的负相（根据算法 18.2）}
+   \caption{一个对比分歧算法（算法~\ref{alg:18.2}）的负相无法抑制伪模式的例子。
+   伪模式，是模型分布中存在，而数据分布中没有的模式。
+   因为对比分歧从数据点中初始化它的马尔可夫链，且只跑几步马尔可夫链，不太有机会访问到模型上与数据点相距较远的模式。
+   这意味着，在从模型上进行采样时会采集到不像数据的样本。
+   这也意味着，模型在这些模式上浪费了概率，在正确的模式上投入高概率就很难实现了。
+   出于便于可视化的考虑，图中使用了一种简化了的距离，伪模式与正确的模式在实数轴 \(\mathfrak{R}\)上相距较远。
+   这对应的是在实数轴 \(\mathcal{R} \) 上只有一个单独变量 x 且只做局部运动的马尔可夫链。
+   大多数深度概率模型，其马尔可夫链是基于吉布斯采样的，其对每一个单独的变量都可以做非局部的运动，只是不能同时移动所有的变量。
+   这时，其实修改模式之间的距离度量，不用欧式距离会比较好。
+   但高维空间中距离度量的修改，很难在二维图表中演示。}
    \label{fig:18.2}
 \end{figure}
+
+当然，对比分歧（CD）也是正确负相的一个近似算法。
+CD 不能正确地实现负相的主要原因是抑制高概率的区域与训练样本相差太远。
+在模型中高概率，在数据生成的分布中低概率的区域被称为\consider{``伪模式（Spurious Modes）''}。
+图~\ref{fig:18.2} 展示了为什么会出现伪模式。
+基本原因，是除非 k 非常大，模型分布中与数据分布相差较远的模式，根本不会被在训练点初始化的马尔可夫链访问到。
+
+\consider{Carreira-Perpi\~nan and Hinton (2005)} 用实验演示了 CD 估计量对于 RBM 和完全可视玻尔兹曼机是有偏的。
+实验中所收敛的点与最大似然估计量不同。
+他们认为 CD 的偏置很小，作为一种低运算需求的算法，可以用来初始化模型，稍后再用原为复杂的 MCMC 方法微调。
+\consider{Bengio and Delalleau (2009)} 发现 CD 解释成 MCMC 算法更新梯度时抛弃了最小的一些项。
+这解释了为什么会有偏。
+
+
 
 \section{伪概率}
 \label{sec:18.3}
