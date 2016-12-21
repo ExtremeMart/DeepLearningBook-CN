@@ -8,44 +8,43 @@
 
 [http://www.deeplearningbook.org/](http://www.deeplearningbook.org/)
 
-### 当前翻译进度(持续更新)
+### 当前翻译进度(每周更新)
 
 <table border="0">
 <tr><td>章节</td><td>翻译者</td><td>校对者</td><td>翻译进度</td><td>校对进度</td><td>翻译deadline</td></tr>
-<tr><td>0.目录、序言</td><td>@huangynn</td><td>@lizhiyuanUSTC</td><td>已完成</td><td>已完成</td><td>本周发布</td></tr>
-<tr><td>1.深度学习介绍</td><td>@huangynn</td><td>@lizhiyuanUSTC</td><td>已完成</td><td>已完成</td><td></td>本周发布</tr>
-<tr><td>2.线性代数</td><td>pascal_meng@outlook.com</td><td>@swordspoet</td><td>已完成，待上传</td><td>未开始</td><td>2016/12/04</td></tr>
-<tr><td>3.概率论与信息论</td><td>@wulemilly,@msnh</td><td>@AdolfKing</td><td>已完成，待上传</td><td>未开始</td><td>2016/12/15</td></tr>
+<tr><td>0.目录、序言</td><td>@huangynn</td><td>@lizhiyuanUSTC</td><td>已完成</td><td>已完成</td><td>已发布</td></tr>
+<tr><td>1.深度学习介绍</td><td>@huangynn</td><td>@lizhiyuanUSTC</td><td>已完成</td><td>已完成</td><td></td>已发布</tr>
+<tr><td>2.线性代数</td><td>pascal_meng@outlook.com</td><td>@swordspoet</td><td>已完成，待上传</td><td>未开始</td><td>/</td></tr>
+<tr><td>3.概率论与信息论</td><td>@wulemilly,@msnh</td><td>@AdolfKing</td><td>已s上传至git</td><td>校对中</td><td>2016/12/30</td></tr>
 <tr><td>4.数值优化</td><td>@BrowningWan（4.0-4.3），cypress1010@sina.com（4.4-4.5）</td><td>@AdolfKing</td><td>已完成，待上传</td><td>未开始</td><td>2016/12/15</td></tr>
-<tr><td>5.机器学习基础</td><td>@kakaguotao(5.2-5.6)，@KaiserW(5.7-5.11)，@yinruiqing(5.1)</td><td>@AdolfKing</td><td>5.1已翻完，@kaiserw翻译到5.9</td><td>进行中</td><td>2016/12/20、2016/12/30</td></tr>
-<tr><td>6.深度前馈网络</td><td>jim1949@163.com(6.0-6.2),@liviclee(6.3-6.7)</td><td>@AdolfKing</td><td>已翻译5页，已翻译12页</td><td>未开始</td><td>2016/12/18、2016/12/10</td></tr>
-<tr><td>7.深度学习的正则化</td><td>@ysh329</td><td>@AdolfKing</td><td>已翻译5/40</td><td>未开始</td><td>2017/1/20</td></tr>
-<tr><td>8.训练深度模型的优化方法</td><td>wzwei1636@163.com（8.0-8.2），@SilentSkyWalker（8.3-8.5），@dimitri0802（8.6-8.7）</td><td>@AdolfKing</td><td>8.2.3，8.3.1，8.7.5</td><td>未开始</td><td>2016/12/25</td></tr>
-<tr><td>9.卷积网络</td><td>@ifighting（9.0-9.6），@iWeisskohl（9.7-9.11）</td><td>@AdolfKing</td><td>已翻译到9.2和9.10</td><td>未开始</td><td>2016/12/20
+<tr><td>5.机器学习基础</td><td>@kakaguotao(5.2-5.6)，@KaiserW(5.7-5.11)，@yinruiqing(5.1)</td><td>@AdolfKing</td><td>5.1已翻完，@kaiserw翻译到5.11</td><td>进行中</td><td>2017/01/03、2016/12/30</td></tr>
+<tr><td>6.深度前馈网络</td><td>jim1949@163.com(6.0-6.2),@liviclee(6.3-6.7)</td><td>@AdolfKing</td><td>还剩下8页，只剩下图</td><td>未开始</td><td>2016/12/30、2016/12/30</td></tr>
+<tr><td>7.深度学习的正则化</td><td>@ysh329</td><td>@AdolfKing</td><td>已翻译50%</td><td>未开始</td><td>2017/1/20</td></tr>
+<tr><td>8.训练深度模型的优化方法</td><td>wzwei1636@163.com（8.0-8.2），@SilentSkyWalker（8.3-8.5），@dimitri0802（8.6-8.7）</td><td>@AdolfKing</td><td>完成待上传，8.3.1，8.7.5</td><td>未开始</td><td>2016/12/25</td></tr>
+<tr><td>9.卷积网络</td><td>@ifighting（9.0-9.6），@iWeisskohl（9.7-9.11）</td><td>@AdolfKing</td><td>已翻译到9.4和9.11</td><td>未开始</td><td>2016/12/20
 </td></tr>
-<tr><td>10.序列模型：循环网络与递归网络</td><td>@yinruiqing</td><td>@AdolfKing</td><td>翻译到10.2</td><td>未开始</td><td>2017/1/20</td></tr>
+<tr><td>10.序列模型：循环网络与递归网络</td><td>@yinruiqing</td><td>@AdolfKing</td><td>已上传至git</td><td>校对中</td><td>2017/1/20</td></tr>
 <tr><td>11.实战方法</td><td>@rickymf4</td><td>@davidjohn001</td><td>翻译到11.4.1</td><td>未开始</td><td>2017/1/20</td></tr>
 <tr><td>12.应用</td><td>@MalcolmSun(12.0-12.3),@chaocraig(12.4-12.6)</td><td>@oneTaken</td><td>翻译到12.3</td><td>未开始</td><td>2016/12/25</td></tr>
 <tr><td>13.线性模型</td><td>@shalong</td><td>@wubin7019088</td><td>翻译15%</td><td>未开始</td><td>2017/1/20</td></tr>
-<tr><td>14.自编码器</td><td>@hijeffery（14.0-14.6）@Euniceu（14.7-14.9）</td><td>@wubin7019088</td><td>14.0-14.6已全部提交到git </td><td>未开始</td><td>2016/12/5、2016/12/15</td></tr>
-<tr><td>15.表征学习</td><td>@tangzhenyu，@chongruo</td><td>@zhangcg1987</td><td>50%，10%</td><td>未开始</td><td>2016/12/25</td></tr>
-<tr><td>16.深度学习的结构化概率模型</td><td>@YisenWang,@heailong2013</td><td>@Justin1904</td><td>进行中</td><td>未开始</td><td>2016/12/28</td></tr>
-<tr><td>17.蒙特卡洛方法</td><td>@kiseliu（17.0-17.3），@geruihai（17.4-17.5）</td><td>@YangXS,@junyuGao</td><td>17.2已提交到git,90%</td><td>未开始</td><td>2016/12/5</td></tr>
-<tr><td>18.对抗分区函数</td><td>@quxiaofeng</td><td>@rexnxiaobai</td><td>翻译到18.2</td><td>未开始</td><td>2016/12/5</td></tr>
+<tr><td>14.自编码器</td><td>@hijeffery（14.0-14.6）@Euniceu（14.7-14.9）</td><td>@wubin7019088</td><td>14.0-14.6，14.7-14.9已全部提交到git </td><td>未开始</td><td>2016/12/5、2016/12/15</td></tr>
+<tr><td>15.表征学习</td><td>@tangzhenyu（15.0-15.3），@chongruo（15.4-15.6）</td><td>@zhangcg1987</td><td>65%，50%</td><td>未开始</td><td>2016/12/25</td></tr>
+<tr><td>16.深度学习的结构化概率模型</td><td>@YisenWang（16.0-16.2.5）,@heailong2013（16.2.6-16.6）</td><td>@Justin1904</td><td>16.2.1已上传到git,翻译一半</td><td>未开始</td><td>2016/12/28</td></tr>
+<tr><td>17.蒙特卡洛方法</td><td>@kiseliu（17.0-17.3），@geruihai（17.4-17.5）</td><td>@YangXS,@junyuGao</td><td>17.2已提交到git,17.4-17.5已经全部提交到git</td><td>未开始</td><td>2016/12/5</td></tr>
+<tr><td>18.对抗分区函数</td><td>@quxiaofeng</td><td>@rexnxiaobai</td><td>翻译到18.3</td><td>未开始</td><td>2016/12/5</td></tr>
 <tr><td>19.近似推理</td><td>caigaojiang@gmail.com</td><td>@wcj-Ford</td><td>翻译到19.5</td><td>未开始</td><td>2016/12/20</td></tr>
-<tr><td>20.深度生成式模型</td><td>@Bruno-bai</td><td>@lizhiyuanUSTC</td><td>翻译到20.5</td><td>未开始</td><td>2017/1/15</td></tr>
+<tr><td>20.深度生成式模型</td><td>@Bruno-bai</td><td>@lizhiyuanUSTC</td><td>翻译到20.5,预计圣诞翻完</td><td>未开始</td><td>2017/1/15</td></tr>
 </table>
 
 *注:每一章节都有若干小节，所以翻译者可以不只一人，进行中的翻译也可以继续添加翻译者。
 
-另我们非常缺有经验的校对人员，如有意加入，请联系小助手,谢谢。
 
 ### 当前校对人员(持续更新)
 @rexnxiaobai, @AdolfKing, @davidjohn001, @oneTaken, @lizhiyuanUSTC, @zhangcg1987, @wubin7019088，@Justin1904，@wcj-Ford
 
 ### 感谢全体贡献者(持续更新)
 
-@extreme-assistant, @LaurenLuoYun, @BrowningWan, @huangynn, @rexnxiaobai, @yinruiqing, @quxiaofeng, @ysh329，@kiseliu，@AdolfKing，@hijeffery，@lizhiyuanUSTC，@geruihai
+@extreme-assistant, @LaurenLuoYun, @BrowningWan, @huangynn, @rexnxiaobai, @yinruiqing, @quxiaofeng, @ysh329，@kiseliu，@AdolfKing，@hijeffery，@lizhiyuanUSTC，@geruihai，@kaiserw
 
 ### 翻译须知
 
