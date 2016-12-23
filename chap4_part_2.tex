@@ -4,4 +4,145 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{4.4}
+
+\section{约束优化}
+\label{sec:4.4}
+
+我们不希望在$x$的所有可能取值内最大化或最小化函数$f(x)$，而是想要得到当$x$只在某个集合$\mathbb{S}$内时，$f(x)$的最大值与最小值。这就是有约束条件的优化，简称约束优化(constrained optimization)。在约束优化的专用术语里面，集合$\mathbb{S}$被称为可行域(满足约束条件的域)，集合$\mathbb{S}$内的元素$x$被称为可行解。
+
+我们通常希望得到一个在某种意义上较小的最优解，比较常用的方式是强制添加范数约束，如$\parallel{x}\parallel\leq1$。
+
+梯度下降是一种解决无约束优化的最优化算法，为了解决约束优化问题，我们利用将约束条件考虑在内，然后利用改进的梯度下降算法。假定我们使用一个较小的恒定步长$\epsilon$，在梯度下降的每一步中，我们可以将结果投影到可行域$\mathbb{S}$上。如果使用的是直线搜索，我们就只能以步长为$\epsilon$搜索下一个可行解$x$，或者是同样可以把这条直线上的点投影到约束区域。对于直线搜索这种方法，如果先将梯度投影到可行域的切线空间，再进行梯度下降或者直线搜索，则效率会更高。
+
+另外还有一种更加复杂的方法，对于某个约束优化问题，如果另有一个无约束优化问题的解能够被转换为该原始约束优化问题的解，那就可以直接用这个无约束优化替换该约束优化。例如，我们想要最小化$f(x)$，$x\in \mathbb{R} ^2$，并且$x$满足单位二范数约束，那么我们就可以构造关于$\theta$的函数$g(\theta)=f([cos\theta,sin\theta]^T)$，并将$[cos\theta,sin\theta]$作为原始问题$f(x)$的解。这种方法有一定的难度，因为要求两个优化问题之间的转换必须专门针对我们遇到的每种情况进行设计。
+
+Karush-Kuhn-Tucker(KKT)\footnote{KKT方法是对拉格朗日乘子法的推广，拉格朗日乘子法只允许有等式约束}方法提供一种非常通用的解决方案，用来求解约束优化。为了熟悉KKT方法，在这里引入一个新的函数叫广义拉格朗日(genereralized Lagrange)或广义拉格朗日函数(genereralized Lagrange function)
+
+为了便于定义拉格朗日函数，我们用等式与不等式来描述集合$\mathbb{S}$，如$m$个函数$g^{(i)}$和$n$个函数$h^{(j)}$，也即是说$S=\{x \ | \ \forall i,g^{(i)}(x)=0 \ and \ \forall j,g^{(j)}(x)\le0\}$
+。这里$g^{(i)}$被称为等式约束(equality constraints)，$h^{(j)}$被称为不等式约束(inequality constraints)。
+
+同时，还为每一个约束分别引入变量$\lambda _i$与$\alpha _i$，这些变量被称为KKT乘子，广义拉格朗日函数的定义如下：
+
+\begin{equation}
+	L(x,\lambda,\alpha)=f(x)+\sum_{i}\lambda_i g^{(i)}(x)+\sum_{j} \alpha_j h^{(j)}(x)
+\end{equation}
+
+
+现在我们可以通过对此广义拉格朗日函数进行无约束优化，从而解决约束最小化问题。观察上面函数，只要至少存在一个可行解，并且$f(x)$的取值没有趋于无穷，那么就有
+
+\begin{equation}
+	\min\limits_{x} \max\limits_{\lambda} \ \max\limits_{\alpha,\alpha \geq 0} \ L(x, \lambda, \alpha)
+\end{equation}
+
+与下面函数具有相同的最优目标函数值，以及对应的$x$的最优解集合。
+
+\begin{equation}
+	\min\limits_{x \in \mathbb S} f(x)
+\end{equation}
+
+这种等价是成立的，因为只要满足约束条件，则有$\footnote{解释：因为有$h^{(j)}(x) \leq 0$，$g^{(j)}(x) = 0$，以及$a \geq 0$，因此当$\lambda$与$\alpha$均为$0$时，函数$L$取得最大值时，，所以$\max\limits_{\lambda} \max\limits_{\alpha, \alpha \geq 0} L(x, \lambda, \alpha) = f(x)$}$：
+
+\begin{equation}
+	\max\limits_{\lambda} \ \max\limits_{\alpha,\alpha \geq 0} \ L(x, \lambda, \alpha) = f(x)
+\end{equation}
+
+如果有任一约束无法满足，则有：
+\begin{equation}
+	\max\limits_{\lambda} \ \max\limits_{\alpha,\alpha \geq 0} \ L(x, \lambda, \alpha) = \infty
+\end{equation}
+
+
+%%因为有$h^{(j)}(x) \leq 0$，$g^{(j)}(x) = 0$，以及$a \geq 0$，因此当$\lambda$与$\alpha$均为$0$时，函数$L$取得最大值时，，所以$\max\limits_{\lambda} \max\limits{\alpha, \alpha \geq 0} L(x, \lambda, \alpha) = f(x)$
+
+这一性质保证了不可行解不会成为最优解，同时可行域里面得到的最优解也不会改变。
+
+为了得到约束优化的最大值，我们可以构造关于$-f(x)$的广义拉格朗日函数，从而可以导出如下优化问题：
+
+\begin{equation}
+	\min\limits_{x} \max\limits_{\lambda} \max\limits_{\alpha,\alpha \geq 0} -f(x)+\sum_{i}\lambda_i g^{(i)}(x) + \sum_{j}\alpha_j h^{(j)}(x)
+\end{equation}
+
+利用对偶，可以将上面式子转变为另一种形式，这种形式是在最外层完成最大化。
+
+\begin{equation}
+\max\limits_{x} \min\limits_{\lambda} \min\limits_{\alpha,\alpha \geq 0} -f(x)+\sum_{i}\lambda_i g^{(i)}(x) + \sum_{j}\alpha_j h^{(j)}(x)
+\end{equation}
+
+等式约束项前面乘子的符号无关紧要，既可以是正数也可以是负数，因为这里的优化对于每个$\lambda_i$的取值没有任何限制。
+
+不等式约束相当有趣，当$h^{(i)}(x^*) = 0$，我们称约束$h^{(i)}(x)$处于活跃(active)状态，如果某个约束没有处于活跃状态，那么，删除掉这个约束后得到的解与有这个约束得到的解将至少有一个相同的局部解。不活跃状态的约束有可能会排除掉其它解，例如，对于可行域内的所有可行解都是最优解(代价相等的一块区域)的凸问题，可能会因为约束而删除掉某个子集，或者是一个非凸问题可能会有较好的驻点在收敛过程中被不活跃的约束排除掉。然而，不管是否包含了非活跃状态的约束，收敛后得到的一定是驻点。因为不活跃状态的约束$h^{(i)}$为负值，所以函数$\min\limits_\lambda \max\limits_\alpha \max\limits_{\alpha, \alpha \geq 0}L( \bm {x, \lambda, \alpha} )$必然有$\alpha_i = 0$。因此我们也能注意到，$\bm{ \alpha h(x) = 0 }$。换句话说，对于所有的$i$，至少要有一个参数满足$\alpha_i \geq 0$，并且$h^{(i)}(x) \le 0$的约束必须是处于活跃状态。为了更加直观的理解这一点，我们也可以说这个解是被不等式约束强加的边界，并且通过它对应的KKT乘子来影响$x$的解，或者是让不等式约束的KKT乘子为零，从而对最终解不产生影响。
+
+广义拉格朗日函数的梯度为零；满足所有关于$x$和KKT乘子的约束；以及$\alpha \odot h(x) = 0$。这三个条件统称为$Karush-Kuhn-Tucker(KKT)$条件，描述了利用$KKT$乘子求解约束优化问题所需要满足的条件。
+
+如果想了解更多关于$KKT$方法的相关知识，可以参考数值优化这本书(Nocedal and Wright(2006))。
+
+\section{实例：线性最小二乘}
+\label{sec:4.5}
+
+假定我们想要得到最小化下面函数时$x$的取值
+\begin{equation}
+	f(x)=\frac{1}{2} \parallel Ax-b \parallel_{2}^{2}
+\end{equation}
+
+现在已经有一些特有的线性代数求解算法可以高效的解决这一类问题。然而，我们这里还是要探讨如何利用基于梯度的优化来求解，利用这样一个简单的实例来解释这种技术的工作原理。
+
+首先，计算梯度：
+\begin{equation}
+	\delta_x f(x)=A^T (Ax-b) = A^T Ax - A^Tb
+\end{equation}
+
+然后，我们可以使用较小的步长沿着梯度下降，具体步骤参考算法4.1
+
+\begin{algorithm}
+	\caption{利用梯度下降最小化关于$x$的函数$f(x)=\frac{1}{2}\lVert Ax-b \rVert_2^2$}
+	%%\label{alg1}
+	设置较小的步长$\epsilon$和公差$(\delta)$，需要是正数。
+	\begin{algorithmic}
+		\WHILE{$\lVert \bm{ A^TAx - A^Tb} \lVert_2 > \delta$}
+		\STATE $\bm{x \leftarrow {x}} - \epsilon\bm{(A^TAx - A^Tb)}$
+		\ENDWHILE		
+	\end{algorithmic}
+\end{algorithm}
+
+
+我们也可以用牛顿法求解，因为这个函数实质是一个二次函数，利用牛顿法进行二次近似足够准确，并且这种方法一步就能够收敛到全局最小。
+
+
+
+假定我们想要最小化同样一个函数，只是把约束改为$x^T x \leq 1$。这样，我们就可以引入一个拉格朗日函数
+
+\begin{equation}
+	L(x, \lambda) = f(x) + \lambda ( x^T - 1 )
+\end{equation}
+
+到这里，上面的优化问题就转变为：
+\begin{equation}
+	\min\limits_{x} \max\limits_{\lambda, \lambda \geq 0} L(x, \lambda)
+\end{equation}
+
+
+这个无约束最小二乘问题的最小范数解可以使用Moore-Penrose伪逆(也可以称之为广义逆矩阵)：$x=A^+b$，如果这个一个可行解，那它就是上述有约束优化问题的解。如果不是的话，则还需要找到某个约束处于活跃状态的解。将拉格朗日函数对$x$求导，可以得到如下方程：
+\begin{equation}
+	A^TAx - A^Tb + 2\lambda x = 0
+\end{equation}
+
+所以，最终的解会是如下形式：
+\begin{equation}
+	x = (A^TA + 2\lambda I)^{-1}A^Tb
+\end{equation}
+
+对于$\lambda$的取值，必须是要能够满足前面约束条件，我们可以通过对$\lambda$变量做梯度上升来得到取值，为了完成这一步，观察如下式子
+\begin{equation}
+	\frac{\partial}{\partial \lambda}L(x, \lambda) = x^Tx - 1
+\end{equation}
+
+当$x$的范数(这里是二范数)超过1时，上式的导数值大于0，为了沿着导数方向上山，并且增大关于$\lambda$的拉格朗日函数值，我们可以增大$\lambda$。由于$x^Tx$的惩罚系数变大，求解关于$x$的线性方程将能够得到一个较小的范数解，不断的求解线性方程并调整$\lambda$的值，直到$x$有正确的范数解以及关于$\lambda$的导数为0。
+
+本章总结了开发机器学习算法过程中用到的一些数学基础，现在我们准备去搭建及分析一些成熟的学习系统。
+
+
+
+
+
+
+
