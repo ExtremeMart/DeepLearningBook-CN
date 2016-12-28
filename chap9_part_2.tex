@@ -1,7 +1,263 @@
+%\title{深度学习中文翻译版}
+\documentclass[a4paper,11pt]{book}
+
+\usepackage{xeCJK}
+\setCJKfamilyfont{song}{SimSun}   %宋体 song
+%\setCJKmainfont[BoldFont=STSong, ItalicFont=STKaiti]{STSong}
+%\setCJKsansfont[BoldFont=STHeiti]{STXihei}
+%\setCJKmonofont{STFangsong}
+\usepackage{enumerate}
+\usepackage{caption}
+\usepackage{bm}
+\setlength{\parskip}{1em}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Source: http://en.wikibooks.org/wiki/LaTeX/Hyperlinks %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{algorithmic}
+
+
+\usepackage[english]{babel}
+
+% *** Editing Commands ***
+\usepackage{xcolor}
+\usepackage[normalem]{ulem} % use normalem to protect \emph
+\newcommand\add{\bgroup\markoverwith
+  {\textcolor{green}{\rule[-.5ex]{.1pt}{2.5ex}}}\ULon}
+\newcommand\remove{\bgroup\markoverwith
+  {\textcolor{red}{\rule[-.5ex]{.1pt}{2.5ex}}}\ULon}
+\newcommand{\consider}{\bgroup\markoverwith
+  {\textcolor{yellow}{\rule[-.5ex]{.1pt}{2.5ex}}}\ULon}
+  
+% *** URL Support ***
+\usepackage{url}
+
+% *** Math Symbols Support ***
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+% *** Equation Number ***
+\usepackage{amsmath}
+\numberwithin{equation}{chapter}
+
+% *** Algorithm Support ***
+\usepackage[ruled,lined,algochapter]{algorithm2e}
+
+\newenvironment{dedication}
+{
+   \cleardoublepage
+   \thispagestyle{empty}
+   \vspace*{\stretch{1}}
+   \hfill\begin{minipage}[t]{0.66\textwidth}
+   \raggedright
+}
+{
+   \end{minipage}
+   \vspace*{\stretch{3}}
+   \clearpage
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Chapter quote at the start of chapter        %
+% Source: http://tex.stackexchange.com/a/53380 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\renewcommand{\@chapapp}{}% Not necessary...
+\newenvironment{chapquote}[2][2em]
+  {\setlength{\@tempdima}{#1}%
+   \def\chapquote@author{#2}%
+   \parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
+   \itshape}
+  {\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% First page of book which contains 'stuff' like: %
+%  - Book title, subtitle                         %
+%  - Book author name                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\include{math_symbol}
+
+\title{\Huge \textbf{深度学习} }
+% Author
+\author{\textsc{Ian Goodfellow} \\ \textsc{Yoshua Bengio} \\ \textsc{Aaron Courville}}
+\begin{document}
+
+\frontmatter
+\maketitle
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\mainmatter
+
+%%%%%%%%%%%
+% Preface %
+%%%%%%%%%%%
+
+
+%\input{chap9_part_2.tex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%% author: iWeisskohl %%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%% part:9.7-9.11      %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% part:9.6-9.11      %%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{9.6}
+\section{结构化输出}
 \label{sec:9.6}
+    卷积神经网络不仅可以预测一个分类任务的类别标签或者一个回归任务的真实值，还可以输出一个高维度，结构化的目标。通常该目标是由标准化的卷机神经网络输出的一个张量。例如，该模型输出一个张量$S$,$S(i，j,k)$是输入网络的像素$P(j,k)$属于第i层网络的概率。这允许该模型给图像中的每一个像素做标签，同时在单个物体的外围绘制精确的掩膜。
+
+如图9.13所示，我们经常遇到的一个问题是输出平面比输入平面小。在各种被用于区分一副图像中的单个物体的网络结构中，网络空间维度最大的损失来自于使用池化层的大步长。为了产生一个和输入图像相同尺寸的输出图，我们可以尽量避免同时池化（Jain et al.2007）。另一个策略是简单的发送一个较低分辨率的网格标签（Pinheiro and Collobert,2014,2015）。最后，从理论上来说，我们可以对一个步长的像素进行池化操作。
+
+对图像进行像素级别标签首先需要对图像的标签产生一个初始的预测，然后通过在相邻像素间的交互影响调整之前的预测。重复这个步骤相当于在每一阶段用同样的卷积层，在深度网络的最后一层之间共享权值。连续卷积层通过循环神经网络共享层间权值共享来进行一连串计算。图9.17展示了循环神经网络的结构。
+
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{fig/chap9/9_17} 
+% Include the image placeholder.png
+\caption{ An example of a recurrent convolutional network for pixel labeling. The input is an image tensor , with axes corresponding to image rows, image columns, and X channels (red, green, blue). The goal is to output a tensor of labels ? Y, with a probability distribution over labels for each pixel. This tensor has axes corresponding to image rows, image columns, and the di?erent classes. Rather than outputting ? Y in a single shot, the recurrent network iteratively re?nes its estimate ? Y by using a previous estimate of ? Y as input for creating a new estimate. The same parameters are used for each updated estimate, and the estimate can be re?ned as many times as we wish. The tensor of convolution kernels U is used on each step to compute the hidden representation given the input image. The kernel tensor V is used to produce an estimate of the labels given the hidden values. On all but the ?rst step, the kernels W are convolved over ? Y to provide input to the hidden layer. On the ?rst time step, this term is replaced by zero. Because the same parameters are used on each step, this is an example of a recurrent network, as described in Chapter . }
+ \label{fig:9_17}
+\end{center}
+\end{figure}
+
+一旦完成对某个像素的预测，为了把图像分割成不同的区域，我们有很多种办法可以来进一步处理这些预测的像素点（Beiggman et al.2009;Turaga et al. 2010年;Farabet et al. 2013年）。大概的思路是一个区域内的连续像素往往属于同于标签的。图像模型可以描述相邻像素间的相关性。另外，卷积神经网络可以被训练来最大化一个近似的图形化模型训练目标。
+
+\section{数据类型}
+\label{sec:9.7}
+
+      被用于卷积神经网络的数据通常由几个通道组成，每个通道在空间和时间的某些节点观察一些特征信息。表格9.1展示了不同维度和数量的通道的数据。
+
+我们可以参考卷积神经网络应用于视频的例子，参考Chen et al.(2010)。
+  
+目前为止我们仅仅讨论了训练和测试数据是同样空间维度的情况。卷积神经网络的一个优点是可以处理不同空间范围的输入。这种类型的输入不能被传统的，基于矩阵相乘的神经网络替代。这向我们展示了卷积神经网络的迷人之处，尽管网络的计算开销和过拟合存在很大影响。
+ 
+例如，现考虑一系列的图片，每一张图片都有不同的长度和宽度，我们很难为这些图片找到一个固定尺寸和权值的矩阵模型。卷积很明显是适用的，卷积核随着输入图片的尺寸调整不同的参数，同时卷积操作的输出尺度也相应的做改变的。卷积可以看成矩阵相乘，相同的卷积核为不同尺寸的输入图像诱导不同尺寸的双块循环矩阵。有时候神经网络允许输出和输入一样有不同的尺寸，例如如果我们想要把一个类别标签分配给每一个输入像素。在这种情况下，我们不需要做其他事情，换句话说，网络本身必须生成合适尺寸的输出，例如我们想要在一整副图像中分配单类别标签。在这种情况下我们必须要做一些另外的步骤设计，比如插入共用池化层，它的池化区域尺度在尺寸上与输入图片的成比例，为了获得一个固定的池化输出。图9.11列出了一些例子。
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=0.8\textwidth]{fig/chap9/table9_1} 
+   \label{table:9_1}
+\end{figure}
+注意到把卷积层用到处理不同尺寸的输入只有在输入图片是不同尺寸时才有意义，因为它们包含对同一类物体的不同观察——随着时间推移不同长度的记录，随着空间推移不同深度的观察等等。如果输入有很多种尺寸，那么卷积并没有意义，因为它可以随意的包含不同种类的观测信息。例如，我们在处理一个大学的申请，我们的特征包括年纪和标准化的测试成绩，但是并不是每个人都参与了这个测试，所以和所有的特征（类似于此处的年纪和测试成绩）使用相同的权值去卷积是没有意义的。
+
+
+\section{有效的卷积算法}
+\label{sec:9.8}
+ 传统的卷积神经网络应用往往包含至少100万个神经元，如12.2中提到的，利用强大的并行计算资源是必不可少的。然而，在某些情况下我们也可以通过选择合适的卷积算法来提高卷积运算的速度。
+
+   卷积相当于用傅里叶变换把输入和卷积核卷积操作到频率域，对两个信号用点乘，再用傅里叶反变换变换到时域。在某些情况下，这可能比用离散卷积计算更快。
+
+   当k维卷积核可以被表示为d维向量的外积，每一维一个向量，那我们说这个卷积核是可分离的。当卷积核是可分离的，那朴素卷积就失效了。它等价于用每个一维向量组成d个一维向量。这种组成方法很明显比对d个一维向量进行外积要快。这个卷积核同样比向量需要较少的参数。如果卷积核每一维有w个元素，那么朴素的多维卷积需要 O(wd) 的运行时间和元素存储空间，然而可分离卷积只需要 O(w*d)的运行时间和存储空间。当然，并不是每一个卷积网络都可以这样表示。
+   
+   在不损害模型精度的前提下设计出执行卷积或者近似卷积的更快的方法是一个很有意义的研究领域。尽管在商业领域我们采用一定的技术已经提高了前向传播的效率，我们更需要将更多的精力和资源用于网络的开发而不是训练。
+   
+   
+\section{随机或无监督特征}
+\label{sec:9.9}
+
+很明显的，卷积过程中开销最大的部分是特征学习部分。输出层的开销相比于特征学习这部分来说是很小的，因为经过多个卷积层的池化之后输入到该网络层的特征数量是很少的。当我们执行基于梯度下降的监督学习时，每一步的梯度下降需要在整个网络中执行一次完全的前向传播和反向传播。减少卷积网络的训练开销的一个方法是使用监督领域未被训练的特征。
+
+    这里有三种基本的策略可以在没有监督训练的前提下获得卷积核。一个是任意的初始化卷积核。一个是手工设计卷积核，例如设计每一个卷积核检测某一个特定方向或者尺度的边缘。最后，我们可以用过无监督准则习得卷积核。例如，（Coates et al(2011)）对区域图像使用K均值聚类的方法，然后把学习到的矩心作为卷积核。第Ⅲ部分描述了很多非监督学习的方法。在无监督准则下学习特征允许我们在顶层的分类层里把他们区分开来。然后我们就可以在整个网络集里一次提取出全部特征，简单的构造一个最后一层网络的新的训练集。学习最后的卷积层是一个很典型的卷积操作问题，我们假设最后一层是类似于逻辑回归或者SVM分类器。
+    
+    随机滤波在卷积网络中往往有很好的效果（Jarret et al. ,2009;Saxe et al.,2011;Pinto et al.,2011;Cox and Pinto,2011），Saxe et al.(2011)向我们展示了当我们随机分配权值的时候由自然池化组成的卷积层具有频率选择性和平移不变性。他们声称这提供了一种代价较小的选择网络的办法：首先通过仅训练最后一个卷积层来评估几个卷积网络的构造，然后选取其中表现最好的网络结构并用一种开销较大的方法训练整个网络。
+    
+    一个折中的方法是学习特征，但是用这种方法并不需要在每一梯度计算时都进行全部的前向和反向传播。与多层感知器一样，我们采用逐层预训练的方法，独立的训练第一层，然后仅从第一层中提取所有的特征，然后基于已有的特征独立的训练第二层网络，等等。第八章描述了怎么样去执行有监督的逐层预训练，第三部分对每一个卷积层用无监督原则拓展了逐层预训练。一个比较权威层级预训练卷积模型是深度卷积神经置信网络（Lee et al.,2009）。卷积神经网络给我们提供了一个比多层感知器更进一步的预训练策略。相比于之前一次训练整个神经网络，我们可以训练一个小块的模型，像Coates et al.(2011)在k均值聚类中做的一样。然后我们可以用从基于块模型的参数来定义卷积层的卷积核。这也意味着我们可以在不用卷积训练的情况下用无监督学习来训练卷积神经网络。采用这种方法，我们可以训练很大网络，同时只在推理阶段会产生很大的计算开销。（ Ranzato et al. 2007b； Jarrett et al. 2009； Kavukcuoglu 2010 Coates 2013 ;Coates et al,2013）这种方法在2007-2013年间是很流行的，当时的标签数据集是很小的而且计算能力也有限。今天，大部分的卷积神经网络趋向于采用完全的监督学习，在每次迭代过程中用完全前向传播和反向传播。
+ 
+   至于用其他方法来进行无监督训练，尽管我们能从中看到一些益处，但仍旧值得进一步研究。无监督学习提供了我们一些和监督学习之间的正则化的关系，又或者因为学习规则的变化减少了计算开销，我们可以训练更大的网络结构了。
+   
+\section{卷积神经网络的卷积科学基础}
+\label{sec:9.10}
+ 卷积神经网络可以说是基于生物科学的人工智能最成功的例子了。尽管卷积神经网络已经被其他领域引导，神经网络的一些核心设计还是来自神经系统科学。
+    基于神经科学实验的卷积神经网络的起源早于相关计算模型的发展。神经生理学家David Hubel 和Torsten Wiesel合作多年致力于研究哺乳动物视觉系统的工作中最基本的要素（Hubel and Wiesel,1959,1962,1968）。他们的成就最终以诺贝尔奖的形式被大家认可。他们的基于猫的单个神经元活动记录的研究成果对当代的深度学习模型具有深远意义的影响。他们观察到猫大脑中的神经元是如何在猫前面的一个屏幕上精确位置的投射图像做出反应的。他们最伟大的发现在于，神经元在早期的视觉系统中对特定模式的光照反应最为强烈，例如精确地导向杆，但在其他模式上并不能做很好的解释。
+    他们的工作有助于描述大脑的许多功能，这部分功能超出了这本书的范围。从深度学习的角度来看，我们可以专注于一个简单的动画视角的脑功能图。
+    在这个简单化的回顾中，我们关注大脑的一部分，称之为V1,也以基本的初级视觉。V1是大脑首先对视觉输入进行视觉信息处理的部分。在这副漫画中，图像是由光线达到眼睛，刺激视网膜，在眼球后部的感光组织中形成。视网膜中的神经元执行一些简单的图像预处理，但基本上不会改变神经元的表现方式。然后图像通过一个神经和大脑中被称之为外侧膝状体的区域，是在大脑的后面，这部分我们关心的主要作用，是这两个只是把信号琮眼睛传送到V1。
+    一个卷积网络层设计来捕捉V1的三个部分：
+    
+    1. V1被安排在一个空间图中，实际上他有一个二维的结构来模拟图像在视网膜中的结构。例如，光线到达视网膜的下半部分的话，仅仅只会影响V1对应的一半的那部分。卷积网络通过在二维地图中捕定义的特征来获取这部分内容。
+    2.V1包含许多简单的细胞。一个简单的细胞的活动，在一定程度上是由一个线性函数在一个小的，局部空间接受域上在对图像做特征化操作。卷积网络的检测单元被设计来模拟这些简单细胞的特性。
+    3.V1还包含许多复杂的细胞。这些细胞对应的特征与简单细胞对应的特征相似，但是复杂的细胞在特征中对小的位移具有不变性。这激发了卷机网络的池化单元。复杂的细胞对于光照的变化也具有不变性，这些变化不能在空间位置的池化中捕获到。这些不变性启发了一些神经网络的交叉通道结构，如最大输出神经元(Coodfellow et al.,2013a)。
+    
+   
+    
+    有一种说法，卷积网络和哺乳动物视觉系统之间有很多的不同。有一些不同已经被计算神经科学家了解，但超出了本书的范围。有些不同暂时还不知道，因为许多关于哺乳动物视觉系统的工作方式仍然没有答案。这里有一个简短的列表：
+    \begin{itemize}
+    \item 人眼的分辨率是很低的，除了一小块叫做视网膜的中央凹。视网膜的中央凹仅仅观察手臂长度缩略图尺寸的东西。虽然我们好像可以看到高分辨率的整个场景，但这是由我们的大脑的潜意识部分创造的一种幻觉，它把几个小区域的一瞥缝合在一起。大多数卷积网络实际上接收的是全分辨率的照片作为输入。人的大脑做的一些眼球运动被称为扫视最直观的场景或任务相关的部分。将类似的注意力机制纳入深度学习模型是一个活跃的研究方向。在深度学习的背景下，注意力机制是最成功的自然语言处理，如在SEC中描述的那样。几种视觉模型12.4.5.1与视网膜的中央凹的机制已被开发，但到目前为止还没有成为占主导地位的方法(Larochelle and Hinton,2010;Denil et al.,2012)。
+    \item 人类的视觉系统与其他许多系统，如听觉，以及我们的情绪和思维相结合。目前为止，卷积网络是纯粹的视觉网络。  
+    \item 人类视觉系统不仅仅是识别物体。它能够理解整个场景，包括许多对象和对象之间的关系，并处理我们身体需要瑜外界交互的丰富的3-D几何信息。卷积网络已应用到其中的一些问题中，但这些应用仍旧在萌芽期。
+    \item 即使是简单的大脑区域如V1也会受更高层次的反馈影响。神经网络模型的反馈已经被广泛的探讨，但目前为止还没有引人注目的发展。 
+    \item 尽管前馈IT循环速率能够捕获和卷机网络相通的信息，但是中间的计算过程还不明确。大脑有可能采用不同的卷积和池化函数。单个神经元的激活很有可能并没有一个简单的线性滤波响应表现出来。最近的一个V1模型（Rust et al.2005）的每一个神经元都包括不同的激活和池化函数。事实上我们的卡通图片的“简单细胞”和“复杂的细胞”可能会创造出一个不存在的区别；简单细胞和复杂的细胞可能是相同的细胞，但他们的“参数”允许一个连续的行为，从我们所说的“简单”到“复杂”。
+    \end{itemize}
+    
+    值得一提的是，神经科学对于如何训练卷积网络提及的很少。多个空间位置参数共享的模型结构可以追溯到早期的视觉联结模型(Marr and Poggio,1976)，但这些模型没有使用现代的BP算法和梯度下降。例如，神经认知机（Fukushima,1980）用现代卷机网络的大部分的模型架构的设计元素，但是却依赖于一个逐层的无监督聚类算法。
+     Lang and Hinton（1988）介绍了BP算法延时训练神经网络（TDNNs）。用当代的术语来说，TDNNs是用于时间序列的一维卷积网络。BP算法用于这些模型并不是受任何神经科学观察观察的启发，在生物学上它被认为是难以置信的。随着基于反向传播训练TDNNs的成功，(LeCun et al.1989)年发明了采用相同的训练算法应用于图像的二维卷积的现代卷积网络。
+     
+     到目前为止，我们已经描述了简单细胞如何线性化并选择特定的特征，复杂的细胞有更多的非线性，并且对简单细胞的特征变换具有不变性，和叠层的选择性，既不变性之间的交替，可以产生针对特定现象的祖母细胞。我们还没有精确描述这些单个细胞的检测。在一个深的，非线性的网络中去了解单个细胞的功能是很困难的。第一层的简单细胞是很容易分析的，因为他们的响应室友线性函数驱动的。在人工神经网络中，我们可以看到一个卷积层对应的信道响应的卷积核的图像显示。在一个生物神经网络中，我们没有自动办法知道它的权值。对应的，我们把一个电极放在神经元本身，在动物的视网膜前面显示几个白噪声图像的样本，并记录每个样本是如何导致神经元激活的。我们可以对这些反应固定一个线性模型，以获得神经元的近似权值。这种方法被称为反向相关法 （ (Ringach and Shapley,2004 ） 
+     反向相关关系表明大部分V1细胞的权值是由Gabor函数描述。Gabor函数描述了在图像中的二维点的权值。我们可以想象一个图像是二维坐标的函数，I(x，y)。同样，我们可以想象一个简单的细胞在不同位置采样图像，由一组X坐标x和一组Y坐标定义，考虑权值W(x，y)也是一个位置函数。从这个角度来看，一个简单的细胞对图像的响应是由以下函数给出的:
+\begin{align*} 
+& s(I)=\sum_{x \in \mathbb{X}}\sum_{x \in \mathbb{Y}} w(x,y)I(x,y).  \tag{$9.15$}
+\end{align*}     
+     
+特别的，$w(x,y)$以Cabor函数的形式成呈现：
+\begin{align*}
+w(x,y;\alpha,\beta_{x},\beta_{y},f,\phi ,x_{0},y_{0},\tau )=\alpha exp(-\beta _{x}x'^{2}-\beta_{y}y'^{2})cos(fx'+\phi), \tag{$9.16$}
+\end{align*}
+其中
+\begin{align}
+x'=(x-x_{0})cos(\tau)+(y-y_{0})sin(\tau) \tag{$9.17$}
+\end{align}
+\begin{equation}
+y'=-(x-x_{0})sin(\tau )+(y-y_{0})cos(\tau) \tag{$9.18$}
+\end{equation}
+其中，$\alpha$,$\beta _{x}$,$\beta _{y}$,$f$,$x_{0}$,$y_{0}$和$\tau$是控制Gabor函数性能的参数。图9.18展示了不同参数设置下的Gabor函数。
+
+参数,$x_{0}$,$y_{0}$和$\tau$定义了一个协调系统。我们平移并旋转$x$和$y$到$x‘$和$y'$。特别的，单细胞会对$（x_{0},y_{0}）$附近的图像特征做出响应，同时如果我们沿着一条线旋转角度$\tau$,它会对光照的变化做出响应。
+
+把$x_{0}$,$y_{0}$看作是函数，$w$函数是我们沿$x‘$轴移动时光照的响应变化。它有两个重要的因素：一是高斯函数，另一个是余弦函数 。
+高斯因子$\alpha exp(-\beta _{x}x'^{2}-\beta _{y}y'^{2})$可以被看作是一个条件来确保单细胞只对那些$x‘$和$y'$同时为0附近的值作响应，换句话说，靠近细胞接受域的值。尺度因子$\alpha$调整单细胞响应幅度，$\beta _{x}$和$\beta _{y}$控制接受域下降的速度。  
+
+
+总的来说，这个单细胞的动画视图意味着一个单细胞对在某个特定的方向特定位置的特定空间频率做响应。当图像中的亮度波和权值的相位相同时，单细胞会更兴奋。这发生在当图像是亮的且权值是正的，以及图像是暗的且权值是负的的情况下。单细胞在亮度和权值完全反相的情况下是受抑制的，既图像亮的而权值是负的，或者图像是暗的而权值是正的。
+
+复杂细胞的动画视图是这个一个2-D向量的L2范数，这个2—D向量由两个单细胞的响应组成：
+\begin{equation}
+c(I)=\sqrt{s_{0}(I)^{2}+s_{1}(I)^{2}}
+\end{equation}
+
+当$s_{0}$和$s_{1}$有相同的参数，除了$\phi$，并且$\phi$定义成$s_{1}$比$s_{0}$滞后1/4相位时，会有一个很重要的特殊情况。在这种情况下，$s_{0}$和$s_{1}$构成了一队正交值。一个复杂细胞用这样的方式来定义响应：当高斯加权图像$I(x,y)exp(-\beta _{x}x'^{2}-\beta _{y}y'^{2})$在$(x_{0},y_{0})$附近含有方向$\tau$ 的高振幅的正弦波频率f,不管这个波形的相位。换句话说，这个复杂细胞对图像在$\tau$方向的小的平移具有不变性，或者把图像去反（把黑色用白色替代，白色类似）。
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=0.8\textwidth]{fig/chap9/9_18}
+   \label{fig:9_18}
+   \caption{ Gabor functions with a variety of parameter settings. White indicates large positive weight, black indicates large negative weight, and the background gray corresponds to zero weight. (Left) Gabor functions with di?erent values of the parameters that control the coordinate system: x0, y0, and τ. Each Gabor function in this grid is assigned a value of x0 and y0 proportional to its position in its grid, and τ is chosen so that each Gabor ?lter is sensitive to the direction radiating out from the center of the grid. For the other two plots, x0, y0, and τ are ?xed to zero. Gabor functions with (Center) di?erent Gaussian scale parameters βx and βy. Gabor functions are arranged in increasing width (decreasing βx) as we move left to right through the grid, and increasing height (decreasing βy) as we move top to bottom. For the other two plots, the β values are ?xed to 1.5× the image width. Gabor functions with di?erent sinusoid parameters (Right) f and φ. As we move top to bottom, f increases, and as we move left to right, φ increases. For the other two plots, is ?xed to 0 and is ?xed to 5 the image width. }
+\end{figure}
+ 
+从视觉上来比较神经科学和机器学习最显著的一致性，是比较由机器学习习得的特征和那些由V1获得的特征。Olshausen和Field,(1996)展示了一个简单的无监督学习算法，稀疏编码，从接受域来学习特征和单细胞相似。从那以后，我们已经发现当我们应用于自然图像时，有一个很大范围的统计学习算法来学习特征。这包括最深的学习算法，在网络的第一层学习这些特征。图9.19展示了一些例子。因为有很多不同的学习算法学习边缘检测器，我们很难去判顶哪种特定学习算法是大脑的正确模型，仅仅从它学到的特征来看的话（虽然可以确定这是一个不好的算法迹象，如果在应用到自然图像时没有学习到边缘检测器模型）。             这些特征是自然图像的统计结构的重要组成部分，可以由许多不同的方法恢复统计建模。参考Hy$\ddot{a}$rinen et al.(2009)发表的在自然图像统计领域的综述。 
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=0.8\textwidth]{fig/chap9/9_19} 
+   \label{fig:9_19}
+   \caption{ Many machine learning algorithms learn features that detect edges or speci?c colors of edges when applied to natural images. These feature detectors are reminiscent of the Gabor functions known to be present in primary visual cortex. (Left) Weights learned by an unsupervised learning algorithm (spike and slab sparse coding) applied to small image patches. Convolution kernels learned by the ?rst layer of a fully supervised (Right) convolutional maxout network. Neighboring pairs of ?lters drive the same maxout unit}
+\end{figure}
+         
+     
+\section{卷积神经网络和深度学习的发展}
+\label{sec:9.11}
+
+卷积神经网络在深度学习的发展过程中扮演了很重要的角色。他们是把大脑学习运用到机器学习这个想法获得成功应用的一个重要的例子。他们也是深度模型中第一批性能良好的，早在这之前任意深度模型就被认为是可行的。卷积神经网络也是神经网络中最早解决重要商业应用的，同时也保持了当今深度学习在商业应用的前沿位置。例如，在1990年代，$AT\&T$的神经网络研究小组开发了一个神经网络来识别支票，（LeCun et al,1998b）。到90年代结束之后，这个由NEC开发的系统负责整个美国的超过10\%的支票。后来，微软开发了一些基于OCR和手写字体识别系统的卷积网络(Simard et al., 2003)。我们可以从第十二章找到更多关于这类应用的信息和更多的卷积神经网络的现代应用。参考LeCun et al.(2010)了解到2010为止关于卷积神经网络的深度发展历史。
+
+  卷积神经网络也被用来参加很多比赛并取得了很好的成绩。目前商业上对深度学习的感兴趣程度始于 Krizhevsky et al.(2010)赢得了ImageNet的目标识别比赛，但是在这之前卷积神经网络用于赢得其他机器学习和计算机视觉的比赛是很少的。
+  
+  卷积网络是第一个用反向传播来训练的深度网络模型。至于为什么传统的反向传播网络被认为是失败的，而卷积网络的反向传播成功了，我们还没有完全的弄明白。很显然，卷积网络的计算效率比全连接网络的计算效率要高，所以我们可以在卷机网络上做加倍的实验训练，然后调节网络的实现和参数。更大的网络训练起来也是很容易的。在现有硬件的条件下，大的全连接网络在一些任务上往往表现得比较不错，甚至在数据集可得和激活函数很大众化的当下，全链接网络被认为效果并不好。这或许心理上对神经网络成功的主要障碍（实践者不希望神经网络起作用，所以他们没有做很大的努力来使用神经网络）。不管是什么原因，至少幸运的是卷积神经网络在近20年表现的很好。在很多方面，卷积神经网络是其他深度学习的指导，总体上铺平了神经网络被接受的道路。
+  
+  卷积网络提供了一种专门化神经网络来处理数据，这种网络有清晰的网格结构，能把模型变换到很大的尺寸。这种方式已经成为在二维影像拓扑学领域最成功的方法。为了处理一维时序数据，我们转向另一个强大的专业化神经网络框架：循环神经网络。
+       
+     
+\end{document}
