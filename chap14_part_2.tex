@@ -5,71 +5,15 @@
 
 
 \section{14.7}
-=======
-\documentclass[a4paper,11pt]{book}
 
-\usepackage{xeCJK}
-\setCJKmainfont[BoldFont=STSong, ItalicFont=STKaiti]{STSong}
-\setCJKsansfont[BoldFont=STHeiti]{STXihei}
-\setCJKmonofont{STFangsong}
-\usepackage{enumerate}
-\usepackage{caption}
-\usepackage{bm}
-\setlength{\parskip}{1em}
-
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{lmodern}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Source: http://en.wikibooks.org/wiki/LaTeX/Hyperlinks %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{hyperref}
-\usepackage{graphicx}
-\usepackage[english]{babel}
-
-\newenvironment{dedication}
-{
-   \cleardoublepage
-   \thispagestyle{empty}
-   \vspace*{\stretch{1}}
-   \hfill\begin{minipage}[t]{0.66\textwidth}
-   \raggedright
-}
-{
-   \end{minipage}
-   \vspace*{\stretch{3}}
-   \clearpage
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Chapter quote at the start of chapter        %
-% Source: http://tex.stackexchange.com/a/53380 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\makeatletter
-\renewcommand{\@chapapp}{}% Not necessary...
-\newenvironment{chapquote}[2][2em]
-  {\setlength{\@tempdima}{#1}%
-   \def\chapquote@author{#2}%
-   \parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
-   \itshape}
-  {\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\bigskip}
-\makeatother
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% First page of book which contains 'stuff' like: %
-%  - Book title, subtitle                         %
-%  - Book author name                             %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{document}
 
 \frontmatter
 \section{14.7 压缩自编码器}
 压缩自编码器（Rifai et al.，2011a，B）在编码$h=f(x)$上引入了显示规则化项，它可以使f的导数尽可能小：
 
-\begin{math}
+\begin{equation}
  \Omega(h) = \lambda \Bigg\| \frac{\partial f(x)}{\partial x} \Bigg\|_F^2 .
-\end{math}
-（14.18）
+\end{equation}
 
 惩罚项$\Omega(H)$是关于编码函数偏导的雅各比矩阵的平方弗罗贝尼乌斯范数（元素平方和）。
 
@@ -93,10 +37,9 @@ CAE的目的是学习数据的流形结构。关于大$Jx$的方向快速地改�
 \section{14.8 预测稀疏分解}
 预测稀疏分解（PSD）是一个由稀疏编码和参数自编码器组成的混合模型（kavukcuoglu et al.，2008）。参数自编码器被训练来预测迭代推断的输出。PSD已应用于图像和视频中对象识别的无监督特征学习（Kavukcuoglu et al., 2009, 2010; Jarrett et al., 2009; Farabet et al., 2011），在音频中也有应用（Henaff et al., 2011）。该模型包括一个编码器$f(x)$和一个解码器$g(h)$，二者都是参数化的。在训练过程中，$h$是由优化算法控制。训练过程是最小化
 
-\begin{math}
+\begin{equation}
  \| x - g(h) \| ^2 + \lambda | h |_1 + \gamma \| h - f(x) \|^2.
-\end{math}
-（14.19）
+\end{equation}
 
 与稀疏编码一样，训练算法交替地进行关于$h$的最小化和关于模型参数的最小化。相对于$h$的最小化速度更快，因为$f(x)$提供了很好的$h$初始值，并且损失函数始终将h约束在$f(x)$附近。简单的梯度下降（甚至可以少到十步）就可以获得理想的$h$值。
 
